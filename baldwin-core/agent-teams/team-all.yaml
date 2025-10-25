@@ -1,0 +1,29 @@
+# <!-- Powered by Baldwin Writer -->
+bundle:
+  name: Complete Content Studio
+  icon: ✍️
+  description: Full Baldwin Writer team with all 10 content creation agents for comprehensive content projects
+agents:
+  # Orchestration
+  - baldwin-orchestrator
+  - baldwin-master
+
+  # Planning & Strategy
+  - content-strategist
+  - content-architect
+  - content-owner
+  - editorial-pm
+
+  # Creation & Quality
+  - writer
+  - copy-editor
+  - content-sprint-lead
+
+  # Reader Focus
+  - reader-experience
+
+workflows:
+  - new-content-project.yaml
+  - article-production.yaml
+  - content-refresh.yaml
+  - series-development.yaml

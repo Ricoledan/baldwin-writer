@@ -1,0 +1,28 @@
+# <!-- Powered by Baldwin Writer -->
+bundle:
+  name: Fiction Writing Studio
+  icon: 📚
+  description: Fiction-focused team combining Baldwin core agents with Creative Writing expansion pack for novels, short stories, and narrative content
+agents:
+  # Core Baldwin Agents
+  - writer
+  - copy-editor
+  - content-architect
+
+  # Creative Writing Expansion Pack Agents
+  # (requires bmad-creative-writing expansion pack)
+  - plot-architect
+  - character-psychologist
+  - world-builder
+  - dialog-specialist
+  - narrative-designer
+
+workflows:
+  # Baldwin Core Workflows
+  - series-development.yaml
+
+  # Creative Writing Workflows
+  # (from bmad-creative-writing expansion pack)
+  - novel-writing.yaml
+  - short-story-creation.yaml
+  - screenplay-development.yaml

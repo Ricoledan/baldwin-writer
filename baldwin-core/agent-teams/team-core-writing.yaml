@@ -1,0 +1,20 @@
+# <!-- Powered by Baldwin Writer -->
+bundle:
+  name: Core Writing Team
+  icon: ✏️
+  description: Essential content creation team - Writer, Copy Editor, Content Strategist, Content Architect, and Sprint Lead
+agents:
+  # Planning
+  - content-strategist
+  - content-architect
+
+  # Creation & Quality
+  - writer
+  - copy-editor
+
+  # Coordination
+  - content-sprint-lead
+
+workflows:
+  - article-production.yaml
+  - content-refresh.yaml
