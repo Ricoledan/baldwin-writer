@@ -1,0 +1,77 @@
+# <!-- Powered by Baldwin Writer™ -->
+template:
+  id: content-brief-template
+  name: Content Brief
+  version: 1.0
+  based_on: prd-template  # Content equivalent of PRD
+  output:
+    format: markdown
+    filename: docs/content-brief.md
+    title: "{{project_name}} Content Brief"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: overview
+    title: Content Overview
+    instruction: |
+      Capture the essential context for this content piece. If the user has done audience research, incorporate it. Define what this content aims to achieve and why it matters.
+    sections:
+      - id: purpose
+        title: Purpose & Goals
+        type: bullet-list
+        instruction: Why does this content need to exist? What should it achieve? List 3-5 specific goals.
+
+      - id: audience
+        title: Target Audience
+        type: paragraphs
+        instruction: Who is this content for? Describe the target audience including demographics, psychographics, pain points, and content consumption habits (1-2 paragraphs).
+
+      - id: context
+        title: Background Context
+        type: paragraphs
+        instruction: What's the broader context? What problem does this solve for the audience? Why now?
+
+  - id: content-requirements
+    title: Content Requirements
+    elicit: true
+    instruction: Define what this content must deliver and any constraints.
+    sections:
+      - id: key-messages
+        title: Key Messages
+        type: numbered-list
+        prefix: MSG
+        instruction: What are the core ideas this content must communicate? List 3-7 key messages.
+        examples:
+          - "MSG1: Explain the fundamental concept of content strategy in simple terms"
+
+      - id: must-include
+        title: Must Include Elements
+        type: bullet-list
+        instruction: What specific elements, examples, or topics must be included?
+
+      - id: constraints
+        title: Constraints & Requirements
+        type: bullet-list
+        instruction: Length limits, publication platform, format requirements, deadlines, style/tone requirements
+
+  - id: success-criteria
+    title: Success Metrics
+    instruction: How will we measure if this content succeeds?
+    sections:
+      - id: metrics
+        title: Key Metrics
+        type: bullet-list
+        instruction: What metrics will indicate success? (engagement, conversions, shares, etc.)
+
+      - id: ready-to-publish
+        title: Ready to Publish Criteria
+        type: checklist
+        instruction: What criteria must be met before publication?
+
+  - id: references
+    title: References & Research
+    optional: true
+    instruction: Links to research, competitor content, data sources, or related materials.

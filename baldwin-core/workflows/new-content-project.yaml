@@ -1,0 +1,76 @@
+# <!-- Powered by Baldwin Writer™ -->
+workflow:
+  id: new-content-project
+  name: New Content Project - From Concept to Publication
+  description: Complete workflow for creating new content from scratch, guided by specialized agents through planning, architecture, writing, and publication.
+  type: greenfield
+  based_on: greenfield-fullstack  # Adapts BMAD greenfield pattern
+  project_types:
+    - article
+    - blog-post
+    - white-paper
+    - guide
+    - tutorial
+
+  sequence:
+    - agent: content-strategist
+      creates: content-brief.md
+      optional_steps:
+        - brainstorming_session
+        - audience_research
+      notes: "Analyze audience, define objectives, and create strategic content brief. Optional brainstorming before brief creation. SAVE OUTPUT: Copy final content-brief.md to project docs/ folder."
+
+    - agent: content-architect
+      creates: content-outline.md
+      requires: content-brief.md
+      optional_steps:
+        - structure_research
+        - information_architecture_analysis
+      notes: "Design content structure and create detailed outline using outline-tmpl. SAVE OUTPUT: Copy final content-outline.md to project docs/ folder."
+
+    - agent: writer
+      creates: content-draft.md
+      requires:
+        - content-brief.md
+        - content-outline.md
+      notes: "Write content following outline and brief. Draft section by section using content-piece-tmpl. SAVE OUTPUT: Copy draft to project docs/ folder."
+
+    - agent: copy-editor
+      reviews: content-draft.md
+      uses: publishing-checklist
+      creates: review-feedback.md
+      notes: "Conduct comprehensive editorial review using publishing checklist. Provide detailed feedback."
+
+    - agent: writer
+      updates: content-draft.md
+      requires: review-feedback.md
+      condition: editor_requests_changes
+      notes: "Implement editorial feedback and revise content. Re-export updated draft."
+
+    - agent: copy-editor
+      validates: content-draft.md (revised)
+      action: final_approval
+      notes: "Final quality check. Approve for publication or request additional changes."
+
+    - agent: content-sprint-lead
+      action: publication_coordination
+      requires: approved_content
+      notes: "Coordinate final publication preparation, formatting, and release."
+
+  artifacts:
+    - content-brief.md (strategy)
+    - content-outline.md (structure)
+    - content-draft.md (deliverable)
+    - review-feedback.md (quality assurance)
+
+  exit_criteria:
+    - Content meets all quality gates
+    - Editorial approval received
+    - Ready for publication platform
+    - All stakeholders informed
+
+  terminology_notes:
+    bmad_equivalent: greenfield-fullstack
+    content_sprint: Sprint focused on content creation
+    content_piece: Individual content deliverable
+    ready_to_publish: Definition of done for content

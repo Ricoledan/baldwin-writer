@@ -1,0 +1,50 @@
+# <!-- Powered by Baldwin Writer™ -->
+workflow:
+  id: article-production
+  name: Single Article Production
+  description: Streamlined workflow for producing a single article or blog post with full quality assurance.
+  type: single-piece
+  project_types:
+    - article
+    - blog-post
+    - essay
+
+  sequence:
+    - agent: content-strategist
+      creates: article-brief.md
+      notes: "Quick strategic brief for article - audience, purpose, key messages."
+
+    - agent: content-architect
+      creates: article-outline.md
+      requires: article-brief.md
+      notes: "Structure article outline with sections and flow."
+
+    - agent: writer
+      creates: article-draft.md
+      requires:
+        - article-brief.md
+        - article-outline.md
+      notes: "Write article following outline."
+
+    - agent: copy-editor
+      reviews: article-draft.md
+      creates: editorial-feedback.md
+      notes: "Review for quality, clarity, accuracy."
+
+    - agent: writer
+      updates: article-draft.md
+      condition: changes_needed
+      notes: "Implement editorial changes."
+
+    - agent: copy-editor
+      action: final_approval
+      notes: "Approve for publication."
+
+  artifacts:
+    - article-brief.md
+    - article-outline.md
+    - article-draft.md
+
+  exit_criteria:
+    - Editorial approval received
+    - Ready to publish

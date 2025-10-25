@@ -1,0 +1,64 @@
+# <!-- Powered by Baldwin Writer™ -->
+template:
+  id: content-piece-template
+  name: Content Piece
+  version: 1.0
+  based_on: story-template  # Content equivalent of user story
+  output:
+    format: markdown
+    filename: "{{content_slug}}.md"
+    title: "{{content_title}}"
+
+workflow:
+  mode: incremental
+  allow_section_review: true
+
+variables:
+  - name: content_title
+    prompt: "What is the content title?"
+  - name: content_slug
+    prompt: "What is the filename slug?"
+    default: "{{content_title | slugify}}"
+
+sections:
+  - id: frontmatter
+    title: Content Metadata
+    instruction: |
+      Create frontmatter with title, author, date, tags, and any platform-specific metadata.
+
+  - id: opening
+    title: Opening/Hook
+    instruction: |
+      Write the opening based on the outline. Create a compelling hook that draws readers in and sets up the content.
+
+  - id: body-sections
+    title: Main Content
+    instruction: |
+      Write each main section following the outline. For each section:
+      1. Introduce the topic/point
+      2. Develop with explanation, examples, evidence
+      3. Transition to next section
+
+      Follow the outline structure. Use clear headings. Break into readable paragraphs.
+    iterative: true
+
+  - id: closing
+    title: Conclusion/Closing
+    instruction: |
+      Write the conclusion following the outline. Summarize key takeaways, provide call-to-action, or guide next steps.
+
+  - id: supporting-elements
+    title: Supporting Elements
+    optional: true
+    instruction: |
+      Add any images, code blocks, quotes, or other supporting elements as specified in the outline.
+
+  - id: self-review
+    title: Writer Self-Review
+    instruction: |
+      Review your draft against the brief objectives and outline structure. Check:
+      - All outline sections addressed
+      - Key messages communicated
+      - Examples included where planned
+      - Tone and voice appropriate
+      - Clear and engaging throughout

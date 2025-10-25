@@ -1,0 +1,64 @@
+# <!-- Powered by Baldwin Writer™ -->
+template:
+  id: content-outline-template
+  name: Content Outline
+  version: 1.0
+  based_on: architecture-template  # Content equivalent of architecture spec
+  output:
+    format: markdown
+    filename: docs/content-outline.md
+    title: "{{content_title}} Content Outline"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: structure-overview
+    title: Structure Overview
+    instruction: |
+      Review the content brief and design the information architecture. Define the overall structure and flow.
+    sections:
+      - id: content-type
+        title: Content Type & Format
+        type: paragraphs
+        instruction: What type of content is this? (article, tutorial, guide, etc.) What format? (blog post, long-form, listicle, etc.)
+
+      - id: structure-pattern
+        title: Structure Pattern
+        type: paragraph
+        instruction: What organizational pattern will this follow? (problem-solution, how-to, explanatory, narrative, comparison, etc.)
+
+      - id: estimated-length
+        title: Estimated Length
+        type: paragraph
+        instruction: Target word count or length for the complete piece.
+
+  - id: main-sections
+    title: Main Sections
+    elicit: true
+    instruction: Define the main sections of the content with descriptions of what each covers.
+    type: numbered-sections
+    section_template:
+      - section_title: Section Title
+      - purpose: What this section achieves
+      - key_points: Bullet list of key points to cover
+      - examples: Any examples or evidence to include
+      - estimated_length: Approximate word count
+
+  - id: opening
+    title: Opening/Introduction
+    instruction: How will the content begin? What hook, context, or preview sets up the piece?
+
+  - id: closing
+    title: Closing/Conclusion
+    instruction: How will the content end? What summary, call-to-action, or next steps conclude the piece?
+
+  - id: transitions
+    title: Flow & Transitions
+    instruction: How do sections connect? Note any critical transitions or narrative threads.
+
+  - id: supporting-elements
+    title: Supporting Elements
+    optional: true
+    instruction: Any images, diagrams, code examples, quotes, or other non-text elements needed?

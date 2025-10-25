@@ -1,0 +1,56 @@
+# <!-- Powered by Baldwin Writer™ -->
+workflow:
+  id: content-refresh
+  name: Content Refresh & Update
+  description: Workflow for updating, refreshing, or improving existing content.
+  type: brownfield
+  based_on: brownfield-fullstack  # Adapts BMAD brownfield pattern
+  project_types:
+    - content-update
+    - content-improvement
+    - content-migration
+
+  sequence:
+    - agent: content-strategist
+      action: analyze_existing_content
+      creates: refresh-brief.md
+      notes: "Analyze existing content, identify gaps, define refresh objectives."
+
+    - agent: content-architect
+      action: review_structure
+      creates: structure-assessment.md
+      requires: existing-content
+      notes: "Review existing structure, suggest improvements."
+
+    - agent: writer
+      action: update_content
+      requires:
+        - refresh-brief.md
+        - structure-assessment.md
+        - existing-content
+      creates: updated-content.md
+      notes: "Update content based on refresh brief and structural recommendations."
+
+    - agent: copy-editor
+      reviews: updated-content.md
+      creates: review-feedback.md
+      notes: "Review updated content for quality."
+
+    - agent: writer
+      updates: updated-content.md
+      condition: changes_needed
+      notes: "Implement final edits."
+
+    - agent: copy-editor
+      action: final_approval
+      notes: "Approve updated content for publication."
+
+  artifacts:
+    - refresh-brief.md
+    - structure-assessment.md
+    - updated-content.md
+
+  exit_criteria:
+    - All refresh objectives met
+    - Quality standards achieved
+    - Ready to replace existing content

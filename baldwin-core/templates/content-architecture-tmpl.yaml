@@ -1,0 +1,39 @@
+# <!-- Powered by Baldwin Writer™ -->
+template:
+  id: content-architecture-template
+  name: Content Architecture Document
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/content-architecture.md
+    title: "{{project_name}} Content Architecture"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: overview
+    title: Architecture Overview
+    instruction: |
+      Describe the overall content architecture - how content is organized, structured, and interconnected.
+
+  - id: content-hierarchy
+    title: Content Hierarchy
+    instruction: |
+      Define the information hierarchy. What are the main content types or categories? How do they relate?
+
+  - id: content-patterns
+    title: Content Patterns & Templates
+    instruction: |
+      What consistent patterns or templates will be used across content pieces? Define any repeating structures.
+
+  - id: navigation-strategy
+    title: Navigation & Discoverability
+    instruction: |
+      How will readers navigate through content? What linking strategy, categories, or navigation aids will be used?
+
+  - id: consistency-guidelines
+    title: Consistency Guidelines
+    instruction: |
+      What guidelines ensure consistency across all content? Voice, tone, formatting, structure standards.

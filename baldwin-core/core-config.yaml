@@ -1,0 +1,134 @@
+# Baldwin Writer Core Configuration
+# Extends BMAD-METHOD with content creation focus
+
+base:
+  framework: bmad-method
+  version: ">=4.0.0"
+  extends: bmad-method/bmad-core
+
+project:
+  name: Baldwin Writer
+  tagline: "Your AI Content Studio, Orchestrated"
+  domain: content-creation
+  icon: ✍️
+
+# Agent inheritance - Baldwin agents extend BMAD agents
+# This maps Baldwin's content-focused agents to their BMAD equivalents
+agent_inheritance:
+  content-strategist:
+    extends: pm
+    domain: content-strategy
+    customization: Adapts PM role for audience analysis and content planning
+
+  content-architect:
+    extends: architect
+    domain: information-architecture
+    customization: Adapts Architect role for content structure and organization
+
+  writer:
+    extends: dev
+    domain: content-creation
+    customization: Adapts Developer role for content drafting and creation
+
+  copy-editor:
+    extends: qa
+    domain: editorial-quality
+    customization: Adapts QA role for editorial review and quality assurance
+
+  content-sprint-lead:
+    extends: sm
+    domain: workflow-facilitation
+    customization: Adapts Scrum Master role for content workflow coordination
+
+  baldwin-master:
+    extends: bmad-master
+    domain: content-orchestration
+    customization: Content-focused master orchestrator
+
+  baldwin-orchestrator:
+    extends: bmad-orchestrator
+    domain: content-workflows
+    customization: Content workflow guidance
+
+  content-owner:
+    extends: po
+    domain: content-vision
+    customization: Adapts Product Owner role for content vision and strategy
+
+  editorial-pm:
+    extends: pm
+    domain: content-calendar
+    customization: Content calendar and editorial prioritization
+
+  reader-experience:
+    extends: ux-expert
+    domain: audience-engagement
+    customization: Adapts UX Expert role for reader engagement optimization
+
+# Workflow mapping - Baldwin workflows adapt BMAD workflow patterns
+workflow_patterns:
+  new-content-project:
+    based_on: greenfield-fullstack
+    description: Starting a new content project from scratch
+
+  content-refresh:
+    based_on: brownfield-fullstack
+    description: Updating or refreshing existing content
+
+  article-production:
+    based_on: story-workflow
+    description: Single article/piece workflow
+
+  series-development:
+    based_on: epic-workflow
+    description: Multi-piece content series
+
+# Template mapping - Content equivalents of BMAD templates
+template_mapping:
+  content-brief:
+    based_on: prd
+    description: Content requirements and strategic brief
+
+  content-architecture:
+    based_on: architecture
+    description: Content structure and information architecture
+
+  content-piece:
+    based_on: story
+    description: Individual content deliverable
+
+  outline:
+    new: true
+    description: Content outline and structure
+
+# Terminology adaptation
+terminology:
+  # BMAD term -> Baldwin term
+  sprint: "content sprint"
+  story: "content piece"
+  epic: "content series"
+  user_story: "reader need"
+  acceptance_criteria: "publication criteria"
+  definition_of_done: "ready to publish"
+  backlog: "content backlog"
+  standup: "daily check-in"
+  retrospective: "content review"
+
+# Shared resources from BMAD (reused as-is)
+shared_resources:
+  tasks:
+    - create-doc
+    - execute-checklist
+    - advanced-elicitation
+    - facilitate-brainstorming-session
+    - shard-doc
+
+  utils:
+    - bmad-doc-template
+    - workflow-management
+
+# Build configuration
+build:
+  include_bmad_core: true
+  merge_strategy: layer  # Baldwin layers on top of BMAD
+  output_prefix: baldwin-

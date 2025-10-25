@@ -1,0 +1,68 @@
+# <!-- Powered by Baldwin Writer™ -->
+workflow:
+  id: series-development
+  name: Content Series Development
+  description: Workflow for creating multi-piece content series with consistent structure and quality.
+  type: series
+  project_types:
+    - article-series
+    - tutorial-series
+    - content-campaign
+
+  sequence:
+    - agent: content-strategist
+      creates: series-brief.md
+      notes: "Define series strategy, themes, episode structure, and objectives."
+
+    - agent: content-architect
+      creates: series-architecture.md
+      requires: series-brief.md
+      notes: "Design series structure, episode templates, consistency patterns."
+
+    - agent: editorial-pm
+      creates: publication-schedule.md
+      requires:
+        - series-brief.md
+        - series-architecture.md
+      notes: "Plan publication timeline and schedule."
+
+    - phase: episode-production
+      repeat: for_each_episode
+      sequence:
+        - agent: writer
+          creates: episode-{n}-draft.md
+          requires:
+            - series-architecture.md
+            - episode-template
+          notes: "Write episode following series template."
+
+        - agent: copy-editor
+          reviews: episode-{n}-draft.md
+          notes: "Review episode for quality and series consistency."
+
+        - agent: writer
+          updates: episode-{n}-draft.md
+          condition: changes_needed
+          notes: "Implement editorial feedback."
+
+    - agent: copy-editor
+      action: series_consistency_review
+      requires: all_episodes
+      notes: "Final review for series-wide consistency."
+
+    - agent: content-sprint-lead
+      action: coordinate_series_publication
+      requires: approved_episodes
+      notes: "Coordinate series publication according to schedule."
+
+  artifacts:
+    - series-brief.md
+    - series-architecture.md
+    - publication-schedule.md
+    - episode-{n}-draft.md (for each episode)
+
+  exit_criteria:
+    - All episodes meet quality standards
+    - Series consistency maintained
+    - Publication schedule defined
+    - Ready for coordinated release
