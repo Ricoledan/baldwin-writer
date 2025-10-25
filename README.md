@@ -1,24 +1,38 @@
 # Baldwin Writer
 
-AI-Powered Content & Article Production Platform
+**Your AI Content Studio, Orchestrated**
 
 ## Overview
 
-Baldwin Writer is an intelligent content creation platform that leverages the BMAD-METHOD (Breakthrough Method of Agile AI-driven Development) to produce high-quality articles, essays, and creative content through structured AI agent workflows.
+Baldwin Writer is a professional AI content studio that transforms content creation from chaotic iteration into a systematic, quality-driven process. Built on the proven [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) framework, Baldwin Writer orchestrates specialized AI agents through structured workflows—bringing software engineering rigor to the art of writing.
 
-Built on the bmad framework, Baldwin Writer orchestrates specialized AI agents to guide you through the entire content creation lifecycle—from ideation and research to drafting, editing, and quality assurance.
+Unlike generic AI chat tools, Baldwin Writer provides:
+- **Structured Workflows**: Repeatable processes from ideation through publication
+- **Multi-Agent Collaboration**: Specialized AI personas working together like a professional content team
+- **Quality Gates**: Built-in checklists and review processes ensuring excellence
+- **Domain Expertise**: Expansion packs for creative writing, technical documentation, content marketing, and academic writing
+
+**Stop prompting. Start producing.**
 
 ## How It Works
 
-Baldwin Writer uses the bmad methodology to structure content production:
+Baldwin Writer guides you through complete content project lifecycles with specialized AI agents:
 
-1. **Planning Phase** - Define content requirements, audience, and structure
-2. **Research & Ideation** - Gather information and develop content strategy
-3. **Development Phase** - Draft content with specialized writing agents
-4. **Quality Assurance** - Review, edit, and fact-check
-5. **Publication Ready** - Finalize content for distribution
+### The Baldwin Writer Process
 
-Each phase is handled by specialized AI agents working in coordinated workflows, ensuring consistent, high-quality output.
+```
+Planning → Content Architecture → Writing → Editorial Review → Publication
+    ↓              ↓                  ↓            ↓              ↓
+Strategist → Architect → Writer → Copy Editor → Sprint Lead
+```
+
+1. **Content Planning** - Content Strategist analyzes audience and defines requirements
+2. **Architecture** - Content Architect designs structure and information hierarchy
+3. **Creation** - Writer develops content following proven workflows
+4. **Editorial Review** - Copy Editor ensures quality, consistency, and correctness
+5. **Publication** - Content Sprint Lead coordinates final preparation and release
+
+Each workflow includes quality gates, checklists, and iterative refinement—ensuring professional results every time.
 
 ## Prerequisites
 
@@ -52,18 +66,28 @@ npm run validate
 
 ## AI Writing Agents
 
-Baldwin Writer employs specialized AI agents to handle different aspects of content creation:
+Baldwin Writer employs specialized AI agents working together like a professional content team:
 
-- **analyst** - Content requirements and audience analysis
-- **architect** - Content structure and information architecture
-- **bmad-master** - Master content orchestrator
-- **bmad-orchestrator** - Writing workflow coordination
-- **dev** - Content development and drafting
-- **pm** - Editorial project management
-- **po** - Content owner and vision keeper
-- **qa** - Quality assurance and fact-checking
-- **sm** - Writing sprint facilitation
-- **ux-expert** - Reader experience optimization
+### Core Content Team
+- **Content Strategist** - Audience analysis, content requirements, and strategic planning
+- **Content Architect** - Information architecture, structure design, and content blueprints
+- **Writer** - Content creation, drafting, and development
+- **Copy Editor** - Quality assurance, consistency checking, and editorial review
+- **Content Sprint Lead** - Workflow facilitation and project coordination
+
+### Orchestration Agents
+- **Baldwin Master** - Master orchestrator coordinating all agents
+- **Baldwin Orchestrator** - Workflow guidance and process management
+- **Content Owner** - Vision keeper and strategic alignment
+- **Editorial PM** - Content calendar and prioritization
+- **Reader Experience Specialist** - Engagement optimization and clarity
+
+### Expansion Pack Agents
+Additional specialized agents available through domain-specific expansion packs:
+- **Creative Writing**: Plot Architect, Character Psychologist, World Builder, Beta Reader
+- **Technical Writing**: API Documentation Specialist, Tutorial Designer, Code Example Curator
+- **Content Marketing**: SEO Specialist, Brand Voice Guardian, Campaign Strategist
+- **Academic Writing**: Research Analyst, Citation Manager, Argument Architect
 
 ## Available Scripts
 
@@ -77,28 +101,103 @@ npm run lint               # Lint code
 npm run format             # Format code
 ```
 
+## Who Should Use Baldwin Writer?
+
+### 📚 Professional Fiction Writers
+Write novels, screenplays, and creative fiction with specialized agents for plot structure, character development, and narrative pacing.
+
+### 📝 Content Marketers & Bloggers
+Produce consistent, high-quality content at scale with SEO optimization, brand voice consistency, and campaign workflows.
+
+### 🔧 Technical Writers
+Create accurate documentation with information architecture design, version tracking, and multiple document type support.
+
+### 🎓 Academic & Researchers
+Develop papers, theses, and research content with argument structure, citation management, and publication formatting.
+
 ## Project Structure
 
 ```
 .
-├── bmad-core/         # Core BMAD framework (agents, workflows, templates)
-├── common/            # Shared utilities and tasks
-├── docs/              # Content templates and documentation
-├── dist/              # Built agent distributions
-├── expansion-packs/   # Writing domain extensions (creative, technical, etc.)
-│   └── bmad-creative-writing/  # Creative writing workflows
-├── tools/             # CLI and build tooling
-├── flake.nix          # Nix development environment
-└── package.json       # Project configuration
+├── bmad-core/              # Core framework (agents, workflows, templates)
+│   ├── agents/            # Core content creation agents
+│   ├── workflows/         # Content project workflows
+│   ├── templates/         # Content briefs, outlines, specifications
+│   ├── checklists/        # Quality assurance checklists
+│   └── data/              # Knowledge base and preferences
+├── expansion-packs/        # Domain-specific extensions
+│   ├── bmad-creative-writing/      # Fiction, screenwriting, storytelling
+│   ├── bmad-content-marketing/     # Blogs, articles, campaigns (coming soon)
+│   ├── bmad-technical-writing/     # Documentation, tutorials, API docs (coming soon)
+│   └── bmad-academic-writing/      # Papers, research, citations (coming soon)
+├── common/                 # Shared utilities and tasks
+├── docs/                   # Documentation and guides
+│   ├── POSITIONING.md     # Brand identity and differentiation
+│   ├── TERMINOLOGY.md     # Content creation terminology guide
+│   └── user-guide.md      # Getting started guide
+├── dist/                   # Built agent bundles
+└── tools/                  # CLI and build tooling
 ```
 
 ### Key Directories
 
-- **bmad-core/**: Contains the AI agent system, content templates, and workflow definitions
-- **expansion-packs/**: Domain-specific writing extensions (creative writing, technical docs, etc.)
-- **docs/**: Contains PRDs, architecture docs, and content planning materials
-- **dist/**: Compiled agent bundles ready for deployment
+- **bmad-core/**: Core AI agents, workflows, templates, and quality checklists
+- **expansion-packs/**: Domain-specific agents and workflows for specialized content types
+- **docs/**: Strategic positioning, terminology guides, and user documentation
+- **dist/**: Pre-built agent bundles ready for web UI deployment
 
-## License
+## What Makes Baldwin Writer Different?
 
-MIT
+### vs. Generic AI Chat (ChatGPT, Claude)
+- ❌ **Generic AI**: Blank slate, undefined process, single AI personality
+- ✅ **Baldwin Writer**: Structured workflows, multi-agent team, quality gates
+
+### vs. Marketing AI Tools (Jasper, Copy.ai)
+- ❌ **Marketing Tools**: Template-based snippets, marketing-only, single-shot generation
+- ✅ **Baldwin Writer**: Complete project workflows, all content types, iterative refinement
+
+### vs. Writing Software (Scrivener, Atticus)
+- ❌ **Writing Software**: Organization tools, manual process, no AI assistance
+- ✅ **Baldwin Writer**: AI-powered creation AND organization, guided workflows, automated quality checks
+
+## Expansion Packs
+
+Baldwin Writer's power comes from domain-specific expansion packs that provide deep expertise:
+
+### Available Now
+- **Creative Writing Studio** - Complete novel/screenplay workflows with 10 specialized agents
+
+### Coming Soon
+- **Content Marketing Suite** - SEO-optimized article production with campaign management
+- **Technical Documentation** - API docs, tutorials, and technical content workflows
+- **Academic Writing Lab** - Research papers, theses, and academic formatting
+
+[Learn more about expansion packs →](expansion-packs/README.md)
+
+## Documentation
+
+- [Positioning & Identity](docs/POSITIONING.md) - Core messaging and differentiation
+- [Terminology Guide](docs/TERMINOLOGY.md) - Content creation terminology reference
+- [User Guide](docs/user-guide.md) - Getting started with Baldwin Writer
+- [Core Architecture](docs/core-architecture.md) - Technical architecture overview
+- [Expansion Pack Guide](docs/expansion-packs.md) - Creating domain-specific extensions
+
+## Contributing
+
+Baldwin Writer is built on BMAD-METHOD and welcomes contributions:
+
+1. Agent improvements and new agents
+2. Workflow refinements
+3. Domain-specific expansion packs
+4. Templates and checklists
+5. Documentation enhancements
+
+See [Contributing Guide](docs/how-to-contribute-with-pull-requests.md) for details.
+
+## Acknowledgments
+
+Baldwin Writer is built on the [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) framework created by Brian (BMad). Special thanks to the BMAD community for creating a powerful natural language AI orchestration system.
+
+---
+
+**Process Over Prompts. Team Over Tool. Quality Built-In.**
