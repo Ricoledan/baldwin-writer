@@ -51,19 +51,21 @@ All agents honor famous Black writers, philosophers, and thought leaders:
 
 ### ✅ Phase 3: Content Workflows & Templates
 
-**Workflows** (4 complete workflows):
+**Workflows** (5 complete workflows):
 
 1. `new-content-project.yaml` - New content from scratch (adapts greenfield pattern)
 2. `article-production.yaml` - Single article/piece workflow
 3. `content-refresh.yaml` - Update existing content (adapts brownfield pattern)
 4. `series-development.yaml` - Multi-piece content series
+5. `topic-research.yaml` - Systematic topic research and validation workflow
 
-**Templates** (4 core templates):
+**Templates** (5 core templates):
 
 1. `content-brief-tmpl.yaml` - Content requirements document (content equivalent of PRD)
 2. `outline-tmpl.yaml` - Content structure and outline (new, content-specific)
 3. `content-piece-tmpl.yaml` - Individual content deliverable (content equivalent of story)
 4. `content-architecture-tmpl.yaml` - Overall content architecture document
+5. `topic-research-brief-tmpl.yaml` - Topic research findings and validation document
 
 **Tasks** (4 key tasks):
 
@@ -93,8 +95,11 @@ All agents honor famous Black writers, philosophers, and thought leaders:
 - ✅ `baldwin-core/data/style-frameworks.md` - Major style guide references (AP, Chicago, APA, MLA, Microsoft, Google)
 - ✅ `baldwin-core/data/voice-and-tone-guide.md` - Voice and tone guidance
 - ✅ `baldwin-core/data/publishing-platforms.md` - Platform-specific guidance for Substack, Medium, LinkedIn, Ghost, WordPress, and more
+- ✅ `baldwin-core/data/topic-research-framework.md` - Systematic topic research methodologies (BADVC, topic clusters, gap analysis)
+- ✅ `baldwin-core/data/topic-validation-guide.md` - Topic validation frameworks and scoring systems
+- ✅ `baldwin-core/data/content-gap-analysis-guide.md` - Content gap identification and prioritization methods
 
-**Impact**: Agents now have comprehensive domain knowledge to provide content-specific guidance including platform-specific optimization
+**Impact**: Agents now have comprehensive domain knowledge including systematic topic research, validation, and gap analysis capabilities for data-driven content planning
 
 ### ✅ Phase 5: Agent Team Configurations
 
@@ -220,10 +225,10 @@ All agents honor famous Black writers, philosophers, and thought leaders:
 **All critical components complete**:
 
 1. ✅ NPM dependency architecture (BMAD-METHOD ^4.44.1)
-2. ✅ 10 content creation agents
-3. ✅ 7 comprehensive data/knowledge files
+2. ✅ 10 content creation agents (enhanced with topic research capabilities)
+3. ✅ 10 comprehensive data/knowledge files (topic research, validation, gap analysis, platforms)
 4. ✅ 3 agent team configurations
-5. ✅ 4 workflows, 4 templates, 4 tasks, 4 checklists
+5. ✅ 5 workflows, 5 templates, 4 tasks, 4 checklists
 6. ✅ Claude Code integration
 7. ✅ Semantic versioning & release automation
 8. ✅ Package optimized for npm (465KB)
@@ -280,7 +285,7 @@ baldwin-writer/
 ✅ **NPM Integration**: BMAD-METHOD as npm dependency (^4.44.1) for easy updates
 ✅ **Extension Architecture**: Baldwin cleanly extends BMAD without forking
 ✅ **Complete Agent Set**: 10 content-focused agents with proper inheritance
-✅ **Comprehensive Knowledge Base**: 7 data files providing domain expertise to agents
+✅ **Comprehensive Knowledge Base**: 10 data files providing domain expertise including systematic topic research frameworks
 ✅ **Team Configurations**: 3 pre-configured agent teams for different use cases
 ✅ **Claude Code Integration**: Seamless integration via `baldwin-init` command
 ✅ **Content Workflows**: 4 complete workflows for different content scenarios

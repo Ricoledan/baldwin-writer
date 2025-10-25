@@ -1,0 +1,82 @@
+# <!-- Powered by Baldwin Writer™ -->
+workflow:
+  id: topic-research
+  name: Topic Research & Validation
+  description: Systematic workflow for discovering, researching, and validating content topic opportunities before content creation.
+  type: research
+  project_types:
+    - topic-discovery
+    - content-planning
+    - gap-analysis
+
+  sequence:
+    - agent: content-strategist
+      creates: research-scope.md
+      notes: "Define research objectives, target audience, business goals, and scope."
+
+    - agent: content-strategist
+      action: keyword_research
+      creates: keyword-opportunities.md
+      requires: research-scope.md
+      notes: "Research keywords using SEO tools, identify search volume and difficulty."
+
+    - agent: content-strategist
+      action: gap_analysis
+      creates: content-gaps-analysis.md
+      requires: research-scope.md
+      notes: "Analyze competitor content, identify keyword gaps, topic gaps, quality gaps."
+
+    - agent: content-strategist
+      action: question_mining
+      creates: audience-questions.md
+      requires: research-scope.md
+      notes: "Mine questions from communities (Reddit, Quora), Google PAA, support tickets."
+
+    - agent: content-strategist
+      action: topic_clustering
+      creates: topic-clusters.md
+      requires:
+        - keyword-opportunities.md
+        - content-gaps-analysis.md
+        - audience-questions.md
+      notes: "Group topics into clusters, identify pillar topics and supporting content."
+
+    - agent: content-strategist
+      action: validation
+      creates: topic-validation-scores.md
+      requires: topic-clusters.md
+      notes: "Apply BADVC framework and 5-point validation to each topic opportunity."
+
+    - agent: content-strategist
+      action: prioritization
+      creates: prioritized-topic-list.md
+      requires: topic-validation-scores.md
+      notes: "Score and prioritize topics by opportunity size, competition, business value, effort."
+
+    - agent: content-strategist
+      creates: topic-research-brief.md
+      requires:
+        - prioritized-topic-list.md
+        - topic-validation-scores.md
+      notes: "Compile comprehensive research brief with top topics, validation data, and recommendations."
+
+    - agent: content-owner
+      reviews: topic-research-brief.md
+      action: approval
+      notes: "Review and approve prioritized topic list and content plan."
+
+  artifacts:
+    - research-scope.md
+    - keyword-opportunities.md
+    - content-gaps-analysis.md
+    - audience-questions.md
+    - topic-clusters.md
+    - topic-validation-scores.md
+    - prioritized-topic-list.md
+    - topic-research-brief.md
+
+  exit_criteria:
+    - Research brief approved
+    - Topic list prioritized
+    - Validation data documented
+    - Ready for content planning

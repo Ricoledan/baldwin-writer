@@ -1,0 +1,242 @@
+# <!-- Powered by Baldwin Writer™ -->
+template:
+  id: topic-research-brief-template
+  name: Topic Research Brief
+  version: 1.0
+  based_on: content-brief-template
+  output:
+    format: markdown
+    filename: docs/topic-research-brief.md
+    title: "{{project_name}} Topic Research Brief"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: research-overview
+    title: Research Overview
+    instruction: |
+      Capture the scope and objectives of this topic research initiative.
+    sections:
+      - id: objectives
+        title: Research Objectives
+        type: bullet-list
+        instruction: What were we trying to discover? What questions were we answering? List 3-5 objectives.
+        examples:
+          - "Identify 20-30 high-opportunity topics for Q1 2024 content calendar"
+          - "Find content gaps where competitors rank but we don't"
+
+      - id: scope
+        title: Research Scope
+        type: paragraphs
+        instruction: What areas did we research? What competitors did we analyze? What tools and methods did we use?
+
+      - id: timeline
+        title: Research Timeline
+        type: text
+        instruction: When was this research conducted? (Important for data freshness)
+
+  - id: key-findings
+    title: Key Findings
+    instruction: Summary of major discoveries and opportunities identified.
+    sections:
+      - id: top-opportunities
+        title: Top Topic Opportunities
+        type: numbered-list
+        prefix: TOPIC
+        instruction: List the highest-priority topics discovered (top 10-15), with brief validation summary.
+        examples:
+          - "TOPIC1: 'API rate limiting algorithms' - 1,200/month searches, medium competition, strong business fit"
+
+      - id: topic-clusters
+        title: Topic Cluster Opportunities
+        type: subsections
+        instruction: Identified topic clusters with pillar topics and supporting content.
+        subsections:
+          - title: "Cluster 1: [Pillar Topic Name]"
+            type: bullet-list
+            instruction: List cluster topic and 8-12 supporting topics
+
+      - id: content-gaps
+        title: Content Gaps Identified
+        type: subsections
+        instruction: Major gaps where competitors have content but we don't.
+        subsections:
+          - title: Keyword Gaps
+            type: bullet-list
+            instruction: High-value keywords competitors rank for that we don't
+          - title: Topic Gaps
+            type: bullet-list
+            instruction: Topic areas we don't cover at all
+          - title: Quality Gaps
+            type: bullet-list
+            instruction: Topics where our existing content is inferior
+
+  - id: validation-data
+    title: Validation & Analysis
+    instruction: Detailed validation data supporting topic recommendations.
+    sections:
+      - id: search-demand
+        title: Search Demand Analysis
+        type: table
+        instruction: |
+          Create table with columns: Topic | Primary Keyword | Monthly Volume | Related Keywords Volume | Trend
+          Include top 20 topics by search volume.
+
+      - id: competition-assessment
+        title: Competition Analysis
+        type: table
+        instruction: |
+          Create table with columns: Topic | Competition Level | Top Ranking Sites (DA) | Our Ranking | Opportunity Score
+          Assess difficulty of ranking for top topics.
+
+      - id: badvc-scores
+        title: BADVC Framework Scores
+        type: table
+        instruction: |
+          Create table with columns: Topic | Breadth | Authority | Depth | Volume | Competition | Total Score
+          Apply BADVC framework to validate top topics.
+
+      - id: five-point-validation
+        title: 5-Point Validation Scores
+        type: table
+        instruction: |
+          Create table with columns: Topic | Demand | Competition | Business Alignment | Resources | Success Potential | Total
+          Score each topic on 5-point framework (each dimension 0-5 points).
+
+  - id: prioritization
+    title: Topic Prioritization
+    instruction: How topics are ranked and recommended for execution.
+    sections:
+      - id: priority-tiers
+        title: Priority Tiers
+        type: subsections
+        instruction: Organize topics into High/Medium/Low priority tiers with rationale.
+        subsections:
+          - title: "Tier 1: High Priority (Do First)"
+            type: numbered-list
+            instruction: Topics scoring 18-25 points with highest opportunity/lowest competition
+          - title: "Tier 2: Medium Priority (Plan Next Quarter)"
+            type: numbered-list
+            instruction: Topics scoring 12-17 points, good opportunities but more competitive
+          - title: "Tier 3: Low Priority (Backlog)"
+            type: numbered-list
+            instruction: Topics scoring 6-11 points, defer or reconsider
+
+      - id: quick-wins
+        title: Quick Win Opportunities
+        type: bullet-list
+        instruction: Topics that can be created quickly (<8 hours) with good ROI potential.
+
+      - id: long-term-plays
+        title: Long-Term Authority Plays
+        type: bullet-list
+        instruction: Comprehensive topics (20+ hours) that build lasting authority.
+
+  - id: competitive-intelligence
+    title: Competitive Intelligence
+    instruction: What we learned from analyzing competitors.
+    sections:
+      - id: competitor-strengths
+        title: Competitor Content Strengths
+        type: bullet-list
+        instruction: What competitors do well that we should match or exceed.
+
+      - id: competitor-weaknesses
+        title: Competitor Content Weaknesses
+        type: bullet-list
+        instruction: Gaps or weaknesses in competitor content we can exploit.
+
+      - id: differentiation-opportunities
+        title: Differentiation Opportunities
+        type: bullet-list
+        instruction: How we can create distinctly better or different content.
+
+  - id: research-sources
+    title: Research Sources & Data
+    instruction: Tools, methods, and sources used in this research.
+    sections:
+      - id: tools-used
+        title: Tools & Platforms Used
+        type: bullet-list
+        instruction: SEO tools, analytics platforms, research tools used.
+        examples:
+          - "Ahrefs Content Gap analysis"
+          - "Google Search Console (ranking positions 11-50)"
+          - "Reddit r/devops (question mining)"
+
+      - id: competitors-analyzed
+        title: Competitors Analyzed
+        type: bullet-list
+        instruction: List 3-5 competitors whose content was analyzed.
+
+      - id: data-sources
+        title: Data Sources
+        type: bullet-list
+        instruction: Where did keyword data, search volume, competition data come from?
+
+  - id: recommendations
+    title: Strategic Recommendations
+    instruction: Actionable recommendations based on research findings.
+    sections:
+      - id: immediate-actions
+        title: Immediate Next Steps
+        type: numbered-list
+        prefix: ACTION
+        instruction: What should we do in the next 30 days? List 3-5 concrete actions.
+        examples:
+          - "ACTION1: Create content briefs for top 5 high-priority topics"
+          - "ACTION2: Rewrite 3 quality-gap articles to competitive standard"
+
+      - id: content-calendar
+        title: Recommended Content Calendar
+        type: paragraphs
+        instruction: Suggested publishing cadence and topic sequencing for next 3-6 months.
+
+      - id: topic-cluster-roadmap
+        title: Topic Cluster Development Roadmap
+        type: paragraphs
+        instruction: How to build out topic clusters systematically (pillar first vs. supporting content first).
+
+      - id: resource-requirements
+        title: Resource Requirements
+        type: bullet-list
+        instruction: What resources (people, tools, budget) are needed to execute this content plan?
+
+  - id: success-metrics
+    title: Success Metrics & Tracking
+    instruction: How we'll measure success of this content strategy.
+    sections:
+      - id: kpis
+        title: Key Performance Indicators
+        type: bullet-list
+        instruction: What metrics will indicate this research-driven strategy is working?
+        examples:
+          - "Increase organic traffic by 40% in 6 months"
+          - "Rank in top 10 for 15+ target keywords"
+
+      - id: tracking-plan
+        title: Tracking Plan
+        type: paragraphs
+        instruction: How will we track progress on topic execution and performance?
+
+  - id: appendix
+    title: Appendix
+    optional: true
+    instruction: Supporting data, detailed analysis, raw research findings.
+    sections:
+      - id: full-keyword-list
+        title: Complete Keyword List
+        type: reference
+        instruction: Link to full keyword research export (CSV or spreadsheet)
+
+      - id: competitor-content-audits
+        title: Detailed Competitor Audits
+        type: reference
+        instruction: Link to comprehensive competitor content analysis
+
+      - id: validation-worksheets
+        title: Topic Validation Worksheets
+        type: reference
+        instruction: Detailed BADVC and 5-point validation for all topics evaluated

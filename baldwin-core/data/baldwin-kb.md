@@ -31,10 +31,13 @@ Baldwin Writer is an AI-powered content creation platform that extends BMAD-METH
 **Role**: Audience research, content planning, strategy development
 **Key Activities**:
 
+- Systematic topic research using frameworks (BADVC, topic clusters)
+- Validating topic opportunities before resource commitment
+- Content gap analysis (keyword gaps, topic gaps, quality gaps)
 - Researching target audiences and their content needs
-- Creating content briefs that define requirements
+- Creating research-backed content briefs
 - Planning content series and campaigns
-- Aligning content with business goals
+- Aligning content with business goals and data
 
 #### 2. June (Content Architect)
 
@@ -397,12 +400,26 @@ Baldwin automatically provides context about:
 
 ### Additional Knowledge Files
 
+**Audience & Planning**:
+
 - `audience-personas.md`: Reader archetypes and targeting
 - `content-structures.md`: Common content patterns
+
+**Writing Style & Voice**:
+
 - `writing-preferences.md`: Style and voice options
-- `style-frameworks.md`: Major style guide references
+- `style-frameworks.md`: Major style guide references (AP, Chicago, APA, MLA, Microsoft, Google)
 - `voice-and-tone-guide.md`: Brand personality guidance
+
+**Publishing**:
+
 - `publishing-platforms.md`: Platform-specific guidance (Substack, Medium, LinkedIn, Ghost, WordPress, etc.)
+
+**Topic Research & Strategy**:
+
+- `topic-research-framework.md`: Systematic research methodologies (BADVC, topic clusters, gap analysis)
+- `topic-validation-guide.md`: Topic validation frameworks and scoring systems
+- `content-gap-analysis-guide.md`: Content gap identification and prioritization
 
 ## Version Information
 
