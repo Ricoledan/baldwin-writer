@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release of Baldwin Writer
 - Claude Code integration with slash commands (`/writer`, `/content-strategist`, etc.)
 - 10 specialized content creation agents
-- 6 comprehensive data/knowledge files (baldwin-kb, audience-personas, content-structures, writing-preferences, style-frameworks, voice-and-tone-guide)
+- 7 comprehensive data/knowledge files (baldwin-kb, audience-personas, content-structures, writing-preferences, style-frameworks, voice-and-tone-guide, publishing-platforms)
 - 3 agent team configurations (team-all, team-core-writing, team-fiction)
 - Content workflows and templates (article production, content refresh, series development)
 - BMAD-METHOD npm dependency integration

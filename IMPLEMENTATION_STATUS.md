@@ -92,8 +92,9 @@ All agents honor famous Black writers, philosophers, and thought leaders:
 - ✅ `baldwin-core/data/writing-preferences.md` - Writing style preferences and options
 - ✅ `baldwin-core/data/style-frameworks.md` - Major style guide references (AP, Chicago, APA, MLA, Microsoft, Google)
 - ✅ `baldwin-core/data/voice-and-tone-guide.md` - Voice and tone guidance
+- ✅ `baldwin-core/data/publishing-platforms.md` - Platform-specific guidance for Substack, Medium, LinkedIn, Ghost, WordPress, and more
 
-**Impact**: Agents now have comprehensive domain knowledge to provide content-specific guidance
+**Impact**: Agents now have comprehensive domain knowledge to provide content-specific guidance including platform-specific optimization
 
 ### ✅ Phase 5: Agent Team Configurations
 
@@ -220,7 +221,7 @@ All agents honor famous Black writers, philosophers, and thought leaders:
 
 1. ✅ NPM dependency architecture (BMAD-METHOD ^4.44.1)
 2. ✅ 10 content creation agents
-3. ✅ 6 comprehensive data/knowledge files
+3. ✅ 7 comprehensive data/knowledge files
 4. ✅ 3 agent team configurations
 5. ✅ 4 workflows, 4 templates, 4 tasks, 4 checklists
 6. ✅ Claude Code integration
@@ -279,7 +280,7 @@ baldwin-writer/
 ✅ **NPM Integration**: BMAD-METHOD as npm dependency (^4.44.1) for easy updates
 ✅ **Extension Architecture**: Baldwin cleanly extends BMAD without forking
 ✅ **Complete Agent Set**: 10 content-focused agents with proper inheritance
-✅ **Comprehensive Knowledge Base**: 6 data files providing domain expertise to agents
+✅ **Comprehensive Knowledge Base**: 7 data files providing domain expertise to agents
 ✅ **Team Configurations**: 3 pre-configured agent teams for different use cases
 ✅ **Claude Code Integration**: Seamless integration via `baldwin-init` command
 ✅ **Content Workflows**: 4 complete workflows for different content scenarios

@@ -402,6 +402,7 @@ Baldwin automatically provides context about:
 - `writing-preferences.md`: Style and voice options
 - `style-frameworks.md`: Major style guide references
 - `voice-and-tone-guide.md`: Brand personality guidance
+- `publishing-platforms.md`: Platform-specific guidance (Substack, Medium, LinkedIn, Ghost, WordPress, etc.)
 
 ## Version Information
 
