@@ -4,6 +4,14 @@
 
 Content gap analysis is the systematic process of identifying valuable content opportunities by finding topics your audience searches for that you haven't covered, or where competitors have stronger content. This guide provides step-by-step methods for discovering and prioritizing content gaps.
 
+**Domain-Agnostic Framework**: This guide uses universal methodologies that apply across all content domains. For domain-specific examples (technical content, creative writing, healthcare, finance, etc.), see the expansion packs in `expansion-packs/`.
+
+**Example Notation**: Generic examples use placeholder format like "[Topic]" or "[Industry]". Apply to your domain:
+
+- Tech: "API testing" → See `expansion-packs/tech-content/`
+- Creative: "Character development" → See `expansion-packs/bmad-creative-writing/`
+- Your domain: Substitute your topics
+
 ## What Are Content Gaps?
 
 ### Types of Content Gaps
@@ -12,63 +20,115 @@ Content gap analysis is the systematic process of identifying valuable content o
 
 **Definition**: Keywords and search terms that competitors rank for, but you don't.
 
-**Example**:
+**Example Template**:
 
 ```
 Your competitor ranks for:
-- "API rate limiting" (position 3, 1,200/month)
-- "API versioning best practices" (position 2, 800/month)
-- "REST API pagination" (position 4, 600/month)
+- "[Topic] [subtopic keyword]" (position X, Y/month searches)
+- "[Topic] best practices" (position X, Y/month searches)
+- "[Topic] how-to guide" (position X, Y/month searches)
 
 You rank for:
 - None of these
 
-Gap: 3 keyword opportunities, ~2,600 monthly searches
+Gap: X keyword opportunities, ~Y total monthly searches
 ```
+
+**Domain Examples**:
+
+- **Content Marketing**: "content calendar template", "content strategy framework"
+- **Project Management**: "agile sprint planning", "scrum vs kanban"
+- **Personal Finance**: "budget planning worksheet", "retirement calculator"
+- **Tech**: See `expansion-packs/tech-content/` for API, DevOps examples
 
 #### 2. Topic Gap
 
 **Definition**: Subject areas or themes you haven't covered at all.
 
-**Example**:
+**Example Template**:
 
 ```
-Your Content Coverage:
-✅ API design basics
-✅ API security
-❌ API performance optimization (GAP)
-❌ API versioning strategies (GAP)
-❌ API documentation (GAP)
-✅ API testing
+Your Content Coverage for [Topic Area]:
+✅ [Subtopic 1] - covered
+✅ [Subtopic 2] - covered
+❌ [Subtopic 3] - GAP
+❌ [Subtopic 4] - GAP
+❌ [Subtopic 5] - GAP
+✅ [Subtopic 6] - covered
 
 Gaps: 3 major topic areas missing
+```
+
+**Domain Examples**:
+
+**Email Marketing**:
+
+```
+✅ Email list building
+✅ Subject line writing
+❌ Automation workflows (GAP)
+❌ Segmentation strategies (GAP)
+❌ Deliverability optimization (GAP)
+```
+
+**Recipe/Food Blog**:
+
+```
+✅ Quick weeknight dinners
+✅ Desserts
+❌ Meal prep guides (GAP)
+❌ Dietary restrictions (GAP)
+❌ Kitchen equipment reviews (GAP)
 ```
 
 #### 3. Quality Gap
 
 **Definition**: Topics where you have content, but competitors' content is significantly better.
 
-**Example**:
+**Example Template**:
 
 ```
-Topic: "API authentication methods"
+Topic: "[Your Topic]"
 
 Your article:
-- 800 words
-- Published 2021
-- 3 methods covered
-- No code examples
-- 2 backlinks
+- X words
+- Published [old date]
+- Y elements covered
+- Limited examples
+- Z backlinks
 
 Competitor article:
-- 3,200 words
-- Published 2024
-- 7 methods covered
-- 15 code examples
-- 47 backlinks
+- 3X words
+- Published [recent date]
+- 2Y elements covered
+- Comprehensive examples/visuals
+- 10Z backlinks
 
 Gap: Quality and comprehensiveness
 Action: Update/rewrite
+```
+
+**Real Example (Content Marketing)**:
+
+```
+Topic: "Content Marketing Strategy"
+
+Your article:
+- 1,200 words
+- Published 2021
+- 5 strategy steps
+- No templates
+- 4 backlinks
+
+Competitor article:
+- 4,500 words
+- Published 2024
+- 12 strategy steps
+- 3 downloadable templates
+- 68 backlinks
+
+Gap: Depth, recency, resources
+Action: Complete rewrite with templates
 ```
 
 #### 4. Format Gap
@@ -95,18 +155,38 @@ Gaps: 4 format types competitors use successfully
 
 **Definition**: Audience segments not adequately served by your content.
 
-**Example**:
+**Example Template**:
 
 ```
-Target Audiences:
+Target Audiences for [Your Niche]:
 
 Content coverage:
-✅ Beginner developers (30% of content)
-✅ Intermediate developers (50% of content)
-❌ Enterprise CTOs (GAP - 5% of content)
-❌ API product managers (GAP - 2% of content)
+✅ [Audience Segment 1] (X% of content)
+✅ [Audience Segment 2] (Y% of content)
+❌ [Audience Segment 3] (GAP - Z% of content)
+❌ [Audience Segment 4] (GAP - low% of content)
 
-Gaps: Under-serving senior/decision-maker audiences
+Gaps: Under-serving [specific audience segments]
+```
+
+**Domain Examples**:
+
+**B2B Marketing Blog**:
+
+```
+✅ Marketing Managers (40% of content)
+✅ Content Creators (45% of content)
+❌ CMOs/Executives (GAP - 10%)
+❌ Solo consultants (GAP - 5%)
+```
+
+**Personal Finance**:
+
+```
+✅ Young professionals (50%)
+✅ Families (30%)
+❌ Retirees (GAP - 10%)
+❌ Small business owners (GAP - 10%)
 ```
 
 #### 6. Search Intent Gap
@@ -155,13 +235,25 @@ These are your easiest gap opportunities - you're already on page 2-3
 **Example Output**:
 
 ```
-Keyword: "API documentation tools"
-- Position: 12
-- Impressions: 450/month
-- Clicks: 8
+Keyword: "[your topic keyword]"
+- Position: 11-20
+- Impressions: X/month
+- Clicks: Y
 
 Action: Small improvements could push to page 1
 Opportunity: HIGH (already ranking, just need boost)
+```
+
+**Real Example (Project Management)**:
+
+```
+Keyword: "project timeline template"
+- Position: 14
+- Impressions: 820/month
+- Clicks: 12
+
+Action: Update article, add downloadable template
+Opportunity: HIGH - Could gain 200+ monthly visits
 ```
 
 #### Google "People Also Ask"
@@ -180,24 +272,44 @@ Opportunity: HIGH (already ranking, just need boost)
 Result: Question-based content gaps
 ```
 
-**Example**:
+**Example Template**:
 
 ```
-Search: "kubernetes deployment"
+Search: "[your main keyword]"
 
 People Also Ask:
-- "What is Kubernetes deployment vs pod?"
-- "How do I deploy an application in Kubernetes?"
-- "What are deployment strategies in Kubernetes?"
-- "How does rolling update work in Kubernetes?"
+- "[Question 1]"
+- "[Question 2]"
+- "[Question 3]"
+- "[Question 4]"
 
 Your content check:
-❌ Don't answer deployment vs pod
-✅ Have deployment guide
-❌ Don't cover deployment strategies
-❌ Don't explain rolling updates
+❌ Don't answer question 1
+✅ Have content for question 2
+❌ Don't cover question 3
+❌ Don't address question 4
 
 Gaps identified: 3 questions to answer
+```
+
+**Real Example (Email Marketing)**:
+
+```
+Search: "email marketing"
+
+People Also Ask:
+- "What is a good open rate for email marketing?"
+- "How often should I send marketing emails?"
+- "What are the best email marketing tools?"
+- "How to build an email list?"
+
+Your content check:
+❌ No benchmarks/open rate guide
+❌ No frequency best practices
+✅ Have tools comparison
+✅ Have list building guide
+
+Gaps: 2 high-value questions
 ```
 
 #### Answer Socrates / AlsoAsked
@@ -231,25 +343,48 @@ Result: Systematic question coverage map
 Result: Real user pain points and questions
 ```
 
-**Example** (Tech):
+**Example Template**:
 
 ```
-Subreddit: r/kubernetes
+Community: [Relevant forum/subreddit]
 
 Top questions (last 6 months):
-1. "Best way to handle secrets in Kubernetes?" (342 upvotes)
-2. "Kubernetes cost optimization tips?" (287 upvotes)
-3. "How to debug pod crashes?" (256 upvotes)
-4. "Kubernetes vs Docker Swarm in 2024?" (213 upvotes)
+1. "[Question about topic]" (X upvotes)
+2. "[Question about topic]" (Y upvotes)
+3. "[Question about topic]" (Z upvotes)
 
 Your content check:
-❌ No secrets management guide
-❌ No cost optimization content
-✅ Have debugging guide
-❌ No updated comparison
+❌ No content addressing question 1
+❌ No content addressing question 2
+✅ Have content for question 3
+❌ No content for question 4
 
-Gaps: 3 high-interest topics
+Gaps: X high-interest topics
 ```
+
+**Domain Examples**:
+
+**Photography (r/photography)**:
+
+```
+1. "Best camera for beginners 2024?" (445 upvotes)
+2. "How to price photography services?" (387 upvotes)
+3. "Lightroom vs Capture One?" (298 upvotes)
+
+Gaps: Pricing guide, software comparison
+```
+
+**Gardening (r/gardening)**:
+
+```
+1. "When to start seeds indoors?" (512 upvotes)
+2. "Dealing with aphids naturally?" (401 upvotes)
+3. "Best vegetables for containers?" (367 upvotes)
+
+Gaps: Seed starting calendar, pest control guide
+```
+
+For tech examples, see `expansion-packs/tech-content/`
 
 ### Paid Tools
 
@@ -272,17 +407,45 @@ Gaps: 3 high-interest topics
 Export and prioritize
 ```
 
-**Example Output**:
+**Example Output Template**:
 
 ```
-Keyword: "GraphQL API design patterns"
-- Volume: 400/month
-- Difficulty: 25
+Keyword: "[topic keyword]"
+- Volume: X/month
+- Difficulty: Y
+- Competitors ranking: Z/5
+- Your ranking: Not in top 100
+
+Opportunity: [HIGH/MEDIUM/LOW]
+Reason: [volume level], [difficulty level], [competitor analysis]
+```
+
+**Real Examples**:
+
+**Content Marketing**:
+
+```
+Keyword: "content calendar template excel"
+- Volume: 1,200/month
+- Difficulty: 22
+- Competitors ranking: 4/5
+- Your ranking: Not in top 100
+
+Opportunity: HIGH
+Reason: Good volume, low difficulty, proven demand
+```
+
+**Fitness/Health**:
+
+```
+Keyword: "meal prep for weight loss"
+- Volume: 3,400/month
+- Difficulty: 35
 - Competitors ranking: 3/5
 - Your ranking: Not in top 100
 
 Opportunity: MEDIUM-HIGH
-Reason: Moderate volume, low difficulty, multiple competitors succeeding
+Reason: High volume, moderate difficulty, achievable
 ```
 
 #### Semrush Keyword Gap
