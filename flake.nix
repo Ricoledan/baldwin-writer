@@ -2,7 +2,8 @@
   description = "BMAD-METHOD AI Agent Framework Development Environment";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Pin to a stable revision with good binary cache coverage for macOS
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -14,17 +15,11 @@
       {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            # Node.js v20+ required for BMAD-METHOD
+            # Node.js v20+ required for BMAD-METHOD (includes npm)
             nodejs_20
-
-            # Package managers
-            nodePackages.npm
 
             # Useful development tools
             git
-
-            # Optional: helpful for debugging
-            nodePackages.node-gyp
           ];
 
           shellHook = ''
