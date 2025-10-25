@@ -11,20 +11,36 @@
     "creative-writing",
     "content-creation"
   ],
+  "homepage": "https://github.com/ricoledan/baldwin-writer#readme",
+  "bugs": {
+    "url": "https://github.com/ricoledan/baldwin-writer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ricoledan/baldwin-writer.git"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "Rico Ledan",
   "main": "tools/cli.js",
   "bin": {
     "baldwin": "tools/bmad-npx-wrapper.js",
-    "baldwin-writer": "tools/bmad-npx-wrapper.js",
     "baldwin-init": "tools/installer/bin/baldwin-init.js",
+    "baldwin-writer": "tools/bmad-npx-wrapper.js",
     "bmad": "tools/bmad-npx-wrapper.js",
     "bmad-method": "tools/bmad-npx-wrapper.js"
   },
+  "files": [
+    "baldwin-core/",
+    "tools/",
+    "common/",
+    "expansion-packs/",
+    "README.md"
+  ],
   "scripts": {
     "build": "node tools/cli.js build",
     "build:agents": "node tools/cli.js build --agents-only",
     "build:teams": "node tools/cli.js build --teams-only",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "fix": "npm run format && npm run lint:fix",
     "flatten": "node tools/flattener/main.js",
     "format": "prettier --write \"**/*.{js,cjs,mjs,json,md,yaml}\"",
@@ -33,7 +49,15 @@
     "lint": "eslint . --ext .js,.cjs,.mjs,.yaml --max-warnings=0",
     "lint:fix": "eslint . --ext .js,.cjs,.mjs,.yaml --fix",
     "list:agents": "node tools/cli.js list:agents",
-    "validate": "node tools/cli.js validate"
+    "prepare": "husky",
+    "prepublishOnly": "npm run validate && npm run build",
+    "release:major": "npm version major -m 'chore(release): %s'",
+    "release:minor": "npm version minor -m 'chore(release): %s'",
+    "release:patch": "npm version patch -m 'chore(release): %s'",
+    "validate": "node tools/cli.js validate",
+    "preversion": "npm run validate",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "postversion": "git push && git push --tags"
   },
   "lint-staged": {
     "**/*.{js,cjs,mjs}": [
@@ -63,7 +87,10 @@
     "semver": "^7.7.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.34.0",
+    "conventional-changelog-cli": "^5.0.0",
     "eslint": "^9.34.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-n": "^17.21.3",

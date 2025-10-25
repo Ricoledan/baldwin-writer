@@ -1,0 +1,61 @@
+# Development files
+.github/
+.git/
+.direnv/
+.envrc
+*.log
+*.stats.md
+
+# Documentation (users can read on GitHub)
+docs/
+IMPLEMENTATION_STATUS.md
+CLAUDE.md
+
+# Build artifacts
+dist/
+build/
+.bmad*/
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+__tests__/
+coverage/
+
+# Development configs
+.eslintrc*
+.prettierrc*
+eslint.config.mjs
+prettier.config.mjs
+.husky/
+.vscode/
+.idea/
+
+# IDE configs
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+circle.yml
+
+# Nix
+flake.lock
+flake.nix
+
+# Package manager
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Misc
+.npmrc
+.nvmrc
+.tool-versions

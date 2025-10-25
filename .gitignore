@@ -6,6 +6,10 @@ deno.lock
 pnpm-workspace.yaml
 package-lock.json
 
+# NPM package artifacts
+*.tgz
+.npm/
+
 # Logs
 logs/
 *.log
