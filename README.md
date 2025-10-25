@@ -64,6 +64,36 @@ npm install
 npm run validate
 ```
 
+## Quick Start with Claude Code
+
+Baldwin Writer integrates seamlessly with Claude Code through project-specific slash commands:
+
+```bash
+# 1. Create a content project directory
+mkdir ~/writing/my-novel && cd ~/writing/my-novel
+
+# 2. Initialize Baldwin Writer for Claude Code
+npx baldwin-init init
+
+# 3. Open in Claude Code and use agents
+# Type /writer, /content-strategist, /copy-editor, etc.
+```
+
+**Available Slash Commands:**
+- `/writer` - Content creation and drafting
+- `/content-strategist` - Audience analysis and planning
+- `/copy-editor` - Editorial review and quality
+- `/content-architect` - Information architecture
+- `/content-sprint-lead` - Workflow facilitation
+
+**Benefits:**
+- ✅ Project-specific - Only active in content directories
+- ✅ Zero interference with code projects
+- ✅ Ambient context awareness + explicit commands
+- ✅ Complete agent personas and workflows
+
+[Full Claude Code Integration Guide →](docs/CLAUDE_CODE_INTEGRATION.md)
+
 ## AI Writing Agents
 
 Baldwin Writer employs specialized AI agents working together like a professional content team:

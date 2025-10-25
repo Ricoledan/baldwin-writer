@@ -17,6 +17,7 @@
   "bin": {
     "baldwin": "tools/bmad-npx-wrapper.js",
     "baldwin-writer": "tools/bmad-npx-wrapper.js",
+    "baldwin-init": "tools/installer/bin/baldwin-init.js",
     "bmad": "tools/bmad-npx-wrapper.js",
     "bmad-method": "tools/bmad-npx-wrapper.js"
   },

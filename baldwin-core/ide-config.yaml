@@ -1,0 +1,154 @@
+# Baldwin Writer IDE Configuration
+# Defines how Baldwin agents integrate with various IDEs
+
+# Agent definitions for IDE integration
+agents:
+  content-strategist:
+    command: /content-strategist
+    alias: /strategist
+    description: Content planning and audience analysis
+    icon: 📊
+    order: 1
+
+  content-architect:
+    command: /content-architect
+    alias: /architect
+    description: Information architecture and content structure
+    icon: 🏗️
+    order: 2
+
+  writer:
+    command: /writer
+    alias: /write
+    description: Content creation and drafting
+    icon: ✍️
+    order: 3
+
+  copy-editor:
+    command: /copy-editor
+    alias: /editor
+    description: Editorial review and quality assurance
+    icon: ✏️
+    order: 4
+
+  content-sprint-lead:
+    command: /content-sprint-lead
+    alias: /sprint-lead
+    description: Workflow facilitation and project coordination
+    icon: 🎯
+    order: 5
+
+  baldwin-master:
+    command: /baldwin-master
+    alias: /master
+    description: Master orchestrator for content projects
+    icon: 🎭
+    order: 10
+
+  baldwin-orchestrator:
+    command: /baldwin-orchestrator
+    alias: /orchestrator
+    description: Content workflow guidance
+    icon: 🎼
+    order: 11
+
+  content-owner:
+    command: /content-owner
+    alias: /owner
+    description: Content vision and strategy
+    icon: 👑
+    order: 6
+
+  editorial-pm:
+    command: /editorial-pm
+    alias: /epm
+    description: Content calendar and editorial prioritization
+    icon: 📅
+    order: 7
+
+  reader-experience:
+    command: /reader-experience
+    alias: /ux
+    description: Audience engagement optimization
+    icon: 👥
+    order: 8
+
+# Key content creation tasks
+tasks:
+  create-content-piece:
+    command: /create-content
+    description: Create a new content piece from outline
+
+  create-doc:
+    command: /new-doc
+    description: Create a new document from template
+
+  advanced-elicitation:
+    command: /elicit
+    description: Deep dive question gathering
+
+  execute-checklist:
+    command: /checklist
+    description: Run a quality checklist
+
+# Project context configuration
+context:
+  # Optional marker file that indicates a Baldwin project
+  project_marker: "baldwin.config.yaml"
+
+  # Auto-load project context when marker is present
+  auto_load: true
+
+  # Files to load into context on project open
+  auto_load_files:
+    - "baldwin-core/core-config.yaml"
+    - "docs/content-brief.md"
+    - "docs/content-architecture.md"
+
+  # Project type detection
+  content_indicators:
+    - "docs/*.md"
+    - "content/**/*.md"
+    - "articles/**/*.md"
+    - "posts/**/*.md"
+
+# Claude Code specific configuration
+claude-code:
+  slash_prefix: "Baldwin"
+  commands_dir: ".claude/commands"
+  context_file: ".claude/project-context.md"
+
+  # Whether to create project context file
+  create_context: true
+
+  # Whether to install all agents or prompt for selection
+  install_mode: "all"  # Options: "all", "selective", "minimal"
+
+  # Minimal agent set (if install_mode: "minimal")
+  minimal_agents:
+    - writer
+    - copy-editor
+    - content-strategist
+
+# File permissions for IDE-specific integrations (e.g., Roo Code)
+# Baldwin agents primarily work with content files
+file_permissions:
+  content-strategist:
+    fileRegex: "\\.(md|txt)$"
+    description: "Content planning and strategy documents"
+
+  writer:
+    fileRegex: "\\.(md|txt|html)$"
+    description: "Content files and drafts"
+
+  copy-editor:
+    fileRegex: "\\.(md|txt|html)$"
+    description: "Editable content files"
+
+  content-architect:
+    fileRegex: "\\.(md|txt|yaml|yml|json)$"
+    description: "Content architecture and configuration files"
+
+  content-sprint-lead:
+    fileRegex: "\\.(md|txt|yaml|yml)$"
+    description: "Project and workflow documents"
