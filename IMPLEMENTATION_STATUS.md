@@ -206,7 +206,7 @@ baldwin-writer/
 
 ## Breaking Changes
 
-⚠️ **Important**: The old `bmad-core/` directory has been renamed to `bmad-core-backup/`. The new `baldwin-core/` is the active extension layer. Build tools need to be updated to use the new structure.
+⚠️ **Important**: Baldwin Writer now uses BMAD-METHOD as an npm dependency instead of a git submodule. The `baldwin-core/` directory contains Baldwin's content-focused extensions. BMAD framework code is in `node_modules/bmad-method/`.
 
 ## How to Continue Development
 
