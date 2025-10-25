@@ -6,8 +6,8 @@ const { extractYamlFromAgent } = require('./yaml-utils');
 class DependencyResolver {
   constructor(rootDir) {
     this.rootDir = rootDir;
-    this.bmadCore = path.join(rootDir, 'bmad-core');
-    this.common = path.join(rootDir, 'common');
+    this.bmadCore = path.join(rootDir, 'node_modules/bmad-method/bmad-core');
+    this.common = path.join(rootDir, 'node_modules/bmad-method/common');
     this.cache = new Map();
   }
 

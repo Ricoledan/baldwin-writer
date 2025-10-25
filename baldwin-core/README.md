@@ -33,7 +33,7 @@ Baldwin agents **wrap** BMAD agents with content-creation focus:
 ```
 Baldwin Agent (content-strategist.md)
     ↓ extends
-BMAD Agent (pm.md from bmad-method/)
+BMAD Agent (pm.md from bmad-method npm package)
     ↓ provides
 Core orchestration framework
 ```
@@ -156,18 +156,14 @@ Baldwin Writer reuses these BMAD resources:
 To pull latest BMAD improvements:
 
 ```bash
-cd bmad-method
-git pull origin main
-cd ..
-git add bmad-method
-git commit -m "Update BMAD-METHOD submodule"
+npm update bmad-method
 ```
 
 Baldwin extensions remain independent and won't be affected by BMAD updates.
 
 ## Related Documentation
 
-- [BMAD-METHOD](../bmad-method/README.md) - Base framework
+- [BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD) - Base framework
 - [ARCHITECTURE.md](../docs/ARCHITECTURE.md) - Overall architecture
 - [POSITIONING.md](../docs/POSITIONING.md) - Brand positioning
 - [TERMINOLOGY.md](../docs/TERMINOLOGY.md) - Terminology guide

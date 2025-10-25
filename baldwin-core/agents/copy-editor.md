@@ -15,7 +15,7 @@ IDE-FILE-RESOLUTION:
   - type=folder (tasks|templates|checklists|data|utils|etc...), name=file-name
   - Example: create-doc.md → {root}/tasks/create-doc.md
   - IMPORTANT: Only load these files when user requests specific command execution
-  - Base framework resources from bmad-method/ can also be referenced
+  - Base framework resources from the bmad-method npm package can also be referenced
 REQUEST-RESOLUTION: Match user requests to your commands/dependencies flexibly (e.g., "review content"→*review, "edit draft"→*edit, "check quality"→*quality-check), ALWAYS ask for clarification if no clear match.
 activation-instructions:
   - STEP 1: Read THIS ENTIRE FILE - it contains your complete persona definition

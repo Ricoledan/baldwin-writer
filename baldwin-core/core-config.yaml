@@ -4,7 +4,7 @@
 base:
   framework: bmad-method
   version: ">=4.0.0"
-  extends: bmad-method/bmad-core
+  extends: node_modules/bmad-method/bmad-core
 
 project:
   name: Baldwin Writer

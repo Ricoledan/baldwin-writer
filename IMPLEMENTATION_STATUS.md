@@ -11,19 +11,18 @@ Baldwin Writer now has a complete foundational architecture that extends BMAD-ME
 
 **BMAD Integration Strategy**: Baldwin Writer **extends** BMAD-METHOD as a layer on top, allowing independent updates.
 
-- ✅ BMAD-METHOD added as git submodule from https://github.com/bmad-code-org/BMAD-METHOD
+- ✅ BMAD-METHOD added as npm dependency (bmad-method ^4.44.1)
 - ✅ Baldwin Writer structured to layer content-focused extensions on BMAD core
-- ✅ Can pull BMAD updates independently without affecting Baldwin extensions
+- ✅ Can update BMAD via `npm update` without affecting Baldwin extensions
 - ✅ Maintains compatibility with BMAD framework improvements
 
 ## Completed Implementation (Phase 1-3)
 
 ### ✅ Phase 1: BMAD-METHOD Integration (Foundation)
-- **Git Submodule**: BMAD-METHOD added at `bmad-method/`
+- **NPM Dependency**: BMAD-METHOD added as npm package dependency
 - **Directory Structure**:
-  - `bmad-core-backup/` - Original placeholder content (can be removed)
   - `baldwin-core/` - Baldwin Writer extension layer
-  - `bmad-method/` - BMAD-METHOD submodule (base framework)
+  - `node_modules/bmad-method/` - BMAD-METHOD npm package (base framework)
 - **Core Config**: `baldwin-core/core-config.yaml` defines extension relationships
 - **README**: `baldwin-core/README.md` explains architecture
 
@@ -178,7 +177,8 @@ All agents honor famous Black writers, philosophers, and thought leaders:
 
 ```
 baldwin-writer/
-├── bmad-method/              # ✅ BMAD-METHOD submodule (base framework)
+├── node_modules/
+│   └── bmad-method/          # ✅ BMAD-METHOD npm package (base framework)
 ├── baldwin-core/             # ✅ Baldwin extensions
 │   ├── agents/              # ✅ 10 content-focused agents
 │   ├── agent-teams/         # 📋 Team configurations (TODO)

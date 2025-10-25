@@ -14,6 +14,7 @@ npm-debug.log*
 # Build output
 build/*.txt
 web-bundles/
+dist/
 
 # Environment variables
 .env
@@ -25,6 +26,7 @@ Thumbs.db
 # Development tools and configs
 .prettierignore
 .prettierrc
+.direnv/
 
 # IDE and editor configs
 .windsurf/

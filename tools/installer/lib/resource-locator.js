@@ -20,7 +20,7 @@ class ResourceLocator {
    */
   getBmadCorePath() {
     if (!this._bmadCorePath) {
-      this._bmadCorePath = path.join(__dirname, '../../../bmad-core');
+      this._bmadCorePath = path.join(__dirname, '../../../node_modules/bmad-method/bmad-core');
     }
     return this._bmadCorePath;
   }
