@@ -1,3 +1,7 @@
+## <small>0.2.6 (2025-10-26)</small>
+
+- fix: update core-config path in installer bin ([fda5295](https://github.com/Ricoledan/baldwin-writer/commit/fda5295))
+
 ## <small>0.2.5 (2025-10-26)</small>
 
 - refactor: reorganize to .baldwin/ structure and remove redundant agents ([06e5fdf](https://github.com/Ricoledan/baldwin-writer/commit/06e5fdf))
