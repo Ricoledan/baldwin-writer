@@ -1,3 +1,7 @@
+## <small>0.3.1 (2025-10-26)</small>
+
+- fix: correct agent activation path resolution ([435d676](https://github.com/Ricoledan/baldwin-writer/commit/435d676))
+
 ## 0.3.0 (2025-10-26)
 
 - feat: add diagram enhancements ([1c905d2](https://github.com/Ricoledan/baldwin-writer/commit/1c905d2))
