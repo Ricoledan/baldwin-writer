@@ -1,9 +1,9 @@
 installation-options:
   full:
-    name: Complete BMad Core
+    name: Complete Baldwin Writer Core
     description: Copy the entire .baldwin-core folder with all agents, templates, and tools
     action: copy-folder
-    source: bmad-core
+    source: baldwin-core
   single-agent:
     name: Single Agent
     description: Select and install a single agent with its dependencies
@@ -21,12 +21,12 @@ ide-configurations:
       # 3. The agent will adopt that persona for the conversation
   claude-code:
     name: Claude Code
-    rule-dir: .claude/commands/BMad/
+    rule-dir: .claude/commands/Baldwin/
     format: multi-file
     command-suffix: .md
     instructions: |
-      # To use BMad agents in Claude Code:
-      # 1. Type /agent-name (e.g., "/dev", "/pm", "/architect")
+      # To use Baldwin Writer agents in Claude Code:
+      # 1. Type /agent-name (e.g., "/writer", "/content-strategist", "/copy-editor")
       # 2. Claude will switch to that agent's persona
   iflow-cli:
     name: iFlow CLI

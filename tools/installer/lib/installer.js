@@ -221,7 +221,7 @@ class Installer {
   }
 
   async performFreshInstall(config, installDir, spinner, options = {}) {
-    spinner.text = 'Installing Baldwin Writer Method...';
+    spinner.text = 'Installing Baldwin Writer...';
 
     let files = [];
 
@@ -869,7 +869,7 @@ class Installer {
   }
 
   async performReinstall(config, installDir, spinner) {
-    spinner.start('Preparing to reinstall Baldwin Writer Method...');
+    spinner.start('Preparing to reinstall Baldwin Writer...');
 
     // Remove existing .baldwin-core
     const bmadCorePath = path.join(installDir, '.baldwin-core');
@@ -889,7 +889,7 @@ class Installer {
   }
 
   showSuccessMessage(config, installDir, options = {}) {
-    console.log(chalk.green('\n✓ Baldwin Writer Method installed successfully!\n'));
+    console.log(chalk.green('\n✓ Baldwin Writer installed successfully!\n'));
 
     const ides = config.ides || (config.ide ? [config.ide] : []);
     if (ides.length > 0) {

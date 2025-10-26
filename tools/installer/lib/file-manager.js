@@ -281,10 +281,16 @@ class FileManager {
 
       // Modify sharding settings if provided
       if (config.prdSharded !== undefined) {
+        if (!coreConfig.prd) {
+          coreConfig.prd = {};
+        }
         coreConfig.prd.prdSharded = config.prdSharded;
       }
 
       if (config.architectureSharded !== undefined) {
+        if (!coreConfig.architecture) {
+          coreConfig.architecture = {};
+        }
         coreConfig.architecture.architectureSharded = config.architectureSharded;
       }
 

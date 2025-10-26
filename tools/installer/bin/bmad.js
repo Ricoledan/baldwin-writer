@@ -263,14 +263,14 @@ async function promptInstallation() {
       currentVersion === newVersion
         ? `(v${currentVersion} - reinstall)`
         : `(v${currentVersion} → v${newVersion})`;
-    bmadOptionText = `Update ${coreShortTitle} ${versionInfo} .bmad-core`;
+    bmadOptionText = `Update ${coreShortTitle} ${versionInfo} .baldwin-core`;
   } else {
-    bmadOptionText = `${coreShortTitle} (v${version}) .bmad-core`;
+    bmadOptionText = `${coreShortTitle} (v${version}) .baldwin-core`;
   }
 
   choices.push({
     name: bmadOptionText,
-    value: 'bmad-core',
+    value: 'baldwin-core',
     checked: true,
   });
 
@@ -315,11 +315,11 @@ async function promptInstallation() {
   ]);
 
   // Process selections
-  answers.installType = selectedItems.includes('bmad-core') ? 'full' : 'expansion-only';
-  answers.expansionPacks = selectedItems.filter((item) => item !== 'bmad-core');
+  answers.installType = selectedItems.includes('baldwin-core') ? 'full' : 'expansion-only';
+  answers.expansionPacks = selectedItems.filter((item) => item !== 'baldwin-core');
 
   // Ask sharding questions if installing Baldwin Writer core
-  if (selectedItems.includes('bmad-core')) {
+  if (selectedItems.includes('baldwin-core')) {
     console.log(chalk.cyan('\n📋 Document Organization Settings'));
     console.log(chalk.dim('Configure how your project documentation should be organized.\n'));
 
@@ -521,7 +521,7 @@ async function promptInstallation() {
       },
       // pass previously selected packages so IDE setup only applies those
       selectedPackages: {
-        includeCore: selectedItems.includes('bmad-core'),
+        includeCore: selectedItems.includes('baldwin-core'),
         packs: answers.expansionPacks || [],
       },
     };
