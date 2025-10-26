@@ -248,7 +248,8 @@ async function promptInstallation() {
     '..',
     '..',
     'dist',
-    'baldwin-core',
+    '.baldwin',
+    'core',
     'core-config.yaml',
   );
   const coreConfig = yaml.load(await fs.readFile(coreConfigPath, 'utf8'));
@@ -263,9 +264,9 @@ async function promptInstallation() {
       currentVersion === newVersion
         ? `(v${currentVersion} - reinstall)`
         : `(v${currentVersion} → v${newVersion})`;
-    bmadOptionText = `Update ${coreShortTitle} ${versionInfo} .baldwin-core`;
+    bmadOptionText = `Update ${coreShortTitle} ${versionInfo} .baldwin/`;
   } else {
-    bmadOptionText = `${coreShortTitle} (v${version}) .baldwin-core`;
+    bmadOptionText = `${coreShortTitle} (v${version}) .baldwin/`;
   }
 
   choices.push({
