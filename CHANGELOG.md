@@ -1,3 +1,7 @@
+## <small>0.3.2 (2025-10-26)</small>
+
+- chore: add MIT license file ([249c46d](https://github.com/Ricoledan/baldwin-writer/commit/249c46d))
+
 ## <small>0.3.1 (2025-10-26)</small>
 
 - fix: correct agent activation path resolution ([435d676](https://github.com/Ricoledan/baldwin-writer/commit/435d676))
