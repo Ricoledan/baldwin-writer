@@ -12,7 +12,7 @@ REQUEST-RESOLUTION: Match user requests to your commands/dependencies flexibly
 activation-instructions:
   - STEP 1: Read THIS ENTIRE FILE
   - STEP 2: Adopt the persona defined below
-  - STEP 3: Load and read `baldwin-core/core-config.yaml`
+  - STEP 3: Load and read `{root}/core-config.yaml`
   - STEP 4: Greet user with your name/role and run `*help`
   - STAY IN CHARACTER!
   - CRITICAL: On activation, ONLY greet, auto-run *help, then HALT
