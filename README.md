@@ -7,6 +7,7 @@
 Baldwin Writer is a professional AI content studio that transforms content creation from chaotic iteration into a systematic, quality-driven process. Built on the proven [BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) framework, Baldwin Writer orchestrates specialized AI agents through structured workflows—bringing software engineering rigor to the art of writing.
 
 Unlike generic AI chat tools, Baldwin Writer provides:
+
 - **Structured Workflows**: Repeatable processes from ideation through publication
 - **Multi-Agent Collaboration**: Specialized AI personas working together like a professional content team
 - **Quality Gates**: Built-in checklists and review processes ensuring excellence
@@ -37,32 +38,44 @@ Each workflow includes quality gates, checklists, and iterative refinement—ens
 ## Prerequisites
 
 - Node.js v20.10.0 or higher
-- npm
-- Nix (optional, for reproducible development environment)
 
-## Setup
+## Installation & Setup
 
-### Using Nix (Recommended)
-
-If you have Nix with flakes enabled:
+Baldwin Writer is designed to be used directly via npx—no installation required:
 
 ```bash
-# Enter the development environment
-nix develop
+# 1. Create or navigate to your content project directory
+mkdir ~/writing/my-project && cd ~/writing/my-project
 
-# Or use direnv (if .envrc is present)
-direnv allow
+# 2. Initialize Baldwin Writer for Claude Code
+npx baldwin-writer install
+
+# 3. Start using specialized agents in Claude Code
+# Type /writer, /content-strategist, /copy-editor, etc.
 ```
 
-### Manual Setup
+That's it! Baldwin Writer slash commands are now available in your content project.
+
+### For Contributors & Developers
+
+If you're contributing to Baldwin Writer or developing expansion packs:
 
 ```bash
+# Clone the repository
+git clone https://github.com/Ricoledan/baldwin-writer.git
+cd baldwin-writer
+
 # Install dependencies
 npm install
 
 # Validate installation
 npm run validate
+
+# Build agents
+npm run build
 ```
+
+See [Contributing Guide](docs/how-to-contribute-with-pull-requests.md) for details.
 
 ## Quick Start with Claude Code
 
@@ -73,13 +86,14 @@ Baldwin Writer integrates seamlessly with Claude Code through project-specific s
 mkdir ~/writing/my-novel && cd ~/writing/my-novel
 
 # 2. Initialize Baldwin Writer for Claude Code
-npx baldwin-init init
+npx baldwin-writer install
 
 # 3. Open in Claude Code and use agents
 # Type /writer, /content-strategist, /copy-editor, etc.
 ```
 
 **Available Slash Commands:**
+
 - `/writer` - Content creation and drafting
 - `/content-strategist` - Audience analysis and planning
 - `/copy-editor` - Editorial review and quality
@@ -87,6 +101,7 @@ npx baldwin-init init
 - `/content-sprint-lead` - Workflow facilitation
 
 **Benefits:**
+
 - ✅ Project-specific - Only active in content directories
 - ✅ Zero interference with code projects
 - ✅ Ambient context awareness + explicit commands
@@ -99,6 +114,7 @@ npx baldwin-init init
 Baldwin Writer employs specialized AI agents working together like a professional content team:
 
 ### Core Content Team
+
 - **Content Strategist** - Audience analysis, content requirements, and strategic planning
 - **Content Architect** - Information architecture, structure design, and content blueprints
 - **Writer** - Content creation, drafting, and development
@@ -106,6 +122,7 @@ Baldwin Writer employs specialized AI agents working together like a professiona
 - **Content Sprint Lead** - Workflow facilitation and project coordination
 
 ### Orchestration Agents
+
 - **Baldwin Master** - Master orchestrator coordinating all agents
 - **Baldwin Orchestrator** - Workflow guidance and process management
 - **Content Owner** - Vision keeper and strategic alignment
@@ -113,7 +130,9 @@ Baldwin Writer employs specialized AI agents working together like a professiona
 - **Reader Experience Specialist** - Engagement optimization and clarity
 
 ### Expansion Pack Agents
+
 Additional specialized agents available through domain-specific expansion packs:
+
 - **Creative Writing**: Plot Architect, Character Psychologist, World Builder, Beta Reader
 - **Technical Writing**: API Documentation Specialist, Tutorial Designer, Code Example Curator
 - **Content Marketing**: SEO Specialist, Brand Voice Guardian, Campaign Strategist
@@ -134,15 +153,19 @@ npm run format             # Format code
 ## Who Should Use Baldwin Writer?
 
 ### 📚 Professional Fiction Writers
+
 Write novels, screenplays, and creative fiction with specialized agents for plot structure, character development, and narrative pacing.
 
 ### 📝 Content Marketers & Bloggers
+
 Produce consistent, high-quality content at scale with SEO optimization, brand voice consistency, and campaign workflows.
 
 ### 🔧 Technical Writers
+
 Create accurate documentation with information architecture design, version tracking, and multiple document type support.
 
 ### 🎓 Academic & Researchers
+
 Develop papers, theses, and research content with argument structure, citation management, and publication formatting.
 
 ## Project Structure
@@ -182,14 +205,17 @@ Develop papers, theses, and research content with argument structure, citation m
 ## What Makes Baldwin Writer Different?
 
 ### vs. Generic AI Chat (ChatGPT, Claude)
+
 - ❌ **Generic AI**: Blank slate, undefined process, single AI personality
 - ✅ **Baldwin Writer**: Structured workflows, multi-agent team, quality gates
 
 ### vs. Marketing AI Tools (Jasper, Copy.ai)
+
 - ❌ **Marketing Tools**: Template-based snippets, marketing-only, single-shot generation
 - ✅ **Baldwin Writer**: Complete project workflows, all content types, iterative refinement
 
 ### vs. Writing Software (Scrivener, Atticus)
+
 - ❌ **Writing Software**: Organization tools, manual process, no AI assistance
 - ✅ **Baldwin Writer**: AI-powered creation AND organization, guided workflows, automated quality checks
 
@@ -198,9 +224,11 @@ Develop papers, theses, and research content with argument structure, citation m
 Baldwin Writer's power comes from domain-specific expansion packs that provide deep expertise:
 
 ### Available Now
+
 - **Creative Writing Studio** - Complete novel/screenplay workflows with 10 specialized agents
 
 ### Coming Soon
+
 - **Content Marketing Suite** - SEO-optimized article production with campaign management
 - **Technical Documentation** - API docs, tutorials, and technical content workflows
 - **Academic Writing Lab** - Research papers, theses, and academic formatting
