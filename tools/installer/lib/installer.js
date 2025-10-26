@@ -208,7 +208,7 @@ class Installer {
     });
 
     if (files.length > 0) {
-      // Directory has other files, but no BMad installation.
+      // Directory has other files, but no Baldwin Writer installation.
       // Treat as clean install but record that it isn't empty.
       state.hasOtherFiles = true;
     }
@@ -221,7 +221,7 @@ class Installer {
   }
 
   async performFreshInstall(config, installDir, spinner, options = {}) {
-    spinner.text = 'Installing BMad Method...';
+    spinner.text = 'Installing Baldwin Writer Method...';
 
     let files = [];
 
@@ -465,7 +465,7 @@ class Installer {
     const newVersion = await this.getCoreVersion();
     const versionCompare = this.compareVersions(currentVersion, newVersion);
 
-    console.log(chalk.yellow('\n🔍 Found existing BMad v4 installation'));
+    console.log(chalk.yellow('\n🔍 Found existing Baldwin Writer v4 installation'));
     console.log(`   Directory: ${installDir}`);
     console.log(`   Current version: ${currentVersion}`);
     console.log(`   Available version: ${newVersion}`);
@@ -511,9 +511,9 @@ class Installer {
     let choices = [];
 
     if (versionCompare < 0) {
-      console.log(chalk.cyan('\n⬆️  Upgrade available for BMad core'));
+      console.log(chalk.cyan('\n⬆️  Upgrade available for Baldwin Writer core'));
       choices.push({
-        name: `Upgrade BMad core (v${currentVersion} → v${newVersion})`,
+        name: `Upgrade Baldwin Writer core (v${currentVersion} → v${newVersion})`,
         value: 'upgrade',
       });
     } else if (versionCompare === 0) {
@@ -526,13 +526,13 @@ class Installer {
       }
       console.log(chalk.yellow('\n⚠️  Same version already installed'));
       choices.push({
-        name: `Force reinstall BMad core (v${currentVersion} - reinstall)`,
+        name: `Force reinstall Baldwin Writer core (v${currentVersion} - reinstall)`,
         value: 'reinstall',
       });
     } else {
       console.log(chalk.yellow('\n⬇️  Installed version is newer than available'));
       choices.push({
-        name: `Downgrade BMad core (v${currentVersion} → v${newVersion})`,
+        name: `Downgrade Baldwin Writer core (v${currentVersion} → v${newVersion})`,
         value: 'reinstall',
       });
     }
@@ -616,7 +616,7 @@ class Installer {
   async handleV3Installation(config, installDir, state, spinner) {
     spinner.stop();
 
-    console.log(chalk.yellow('\n🔍 Found BMad v3 installation (bmad-agent/ directory)'));
+    console.log(chalk.yellow('\n🔍 Found Baldwin Writer v3 installation (bmad-agent/ directory)'));
     console.log(`   Directory: ${installDir}`);
 
     const { action } = await inquirer.prompt([
@@ -869,7 +869,7 @@ class Installer {
   }
 
   async performReinstall(config, installDir, spinner) {
-    spinner.start('Preparing to reinstall BMad Method...');
+    spinner.start('Preparing to reinstall Baldwin Writer Method...');
 
     // Remove existing .baldwin-core
     const bmadCorePath = path.join(installDir, '.baldwin-core');
@@ -889,14 +889,14 @@ class Installer {
   }
 
   showSuccessMessage(config, installDir, options = {}) {
-    console.log(chalk.green('\n✓ BMad Method installed successfully!\n'));
+    console.log(chalk.green('\n✓ Baldwin Writer Method installed successfully!\n'));
 
     const ides = config.ides || (config.ide ? [config.ide] : []);
     if (ides.length > 0) {
       for (const ide of ides) {
         const ideConfig = configLoader.getIdeConfiguration(ide);
         if (ideConfig?.instructions) {
-          console.log(chalk.bold(`To use BMad agents in ${ideConfig.name}:`));
+          console.log(chalk.bold(`To use Baldwin Writer agents in ${ideConfig.name}:`));
           console.log(ideConfig.instructions);
         }
       }
@@ -972,7 +972,7 @@ class Installer {
     );
     console.log(
       chalk.red(
-        'This guide contains essential information about the BMad workflow and how to use the agents effectively.',
+        'This guide contains essential information about the Baldwin Writer workflow and how to use the agents effectively.',
       ),
     );
   }
@@ -993,13 +993,13 @@ class Installer {
       };
       return await this.install(config);
     }
-    console.log(chalk.red('No BMad installation found.'));
+    console.log(chalk.red('No Baldwin Writer installation found.'));
   }
 
   async listAgents() {
     const agents = await resourceLocator.getAvailableAgents();
 
-    console.log(chalk.bold('\nAvailable BMad Agents:\n'));
+    console.log(chalk.bold('\nAvailable Baldwin Writer Agents:\n'));
 
     for (const agent of agents) {
       console.log(chalk.cyan(`  ${agent.id.padEnd(20)}`), agent.description);
@@ -1011,7 +1011,7 @@ class Installer {
   async listExpansionPacks() {
     const expansionPacks = await resourceLocator.getExpansionPacks();
 
-    console.log(chalk.bold('\nAvailable BMad Expansion Packs:\n'));
+    console.log(chalk.bold('\nAvailable Baldwin Writer Expansion Packs:\n'));
 
     if (expansionPacks.length === 0) {
       console.log(chalk.yellow('No expansion packs found.'));
@@ -1034,7 +1034,7 @@ class Installer {
     const installDir = await this.findInstallation();
 
     if (!installDir) {
-      console.log(chalk.yellow('No BMad installation found in current directory tree'));
+      console.log(chalk.yellow('No Baldwin Writer installation found in current directory tree'));
       return;
     }
 
@@ -1045,7 +1045,7 @@ class Installer {
       return;
     }
 
-    console.log(chalk.bold('\nBMad Installation Status:\n'));
+    console.log(chalk.bold('\nBaldwin Writer Installation Status:\n'));
     console.log(`  Directory:      ${installDir}`);
     console.log(`  Version:        ${manifest.version}`);
     console.log(`  Installed:      ${new Date(manifest.installed_at).toLocaleDateString()}`);
@@ -1644,7 +1644,7 @@ class Installer {
 
   async installWebBundles(webBundlesDirectory, config, spinner) {
     try {
-      // Find the dist directory in the BMad installation
+      // Find the dist directory in the Baldwin Writer installation
       const distDir = configLoader.getDistPath();
 
       if (!(await fileManager.pathExists(distDir))) {

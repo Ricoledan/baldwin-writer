@@ -8,6 +8,7 @@ base:
 
 project:
   name: Baldwin Writer
+  short-title: "Baldwin Writer Core"
   tagline: "Your AI Content Studio, Orchestrated"
   domain: content-creation
   icon: ✍️
@@ -130,5 +131,5 @@ shared_resources:
 # Build configuration
 build:
   include_bmad_core: true
-  merge_strategy: layer  # Baldwin layers on top of BMAD
+  merge_strategy: layer # Baldwin layers on top of BMAD
   output_prefix: baldwin-

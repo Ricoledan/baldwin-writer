@@ -20,7 +20,7 @@ class ResourceLocator {
    */
   getBmadCorePath() {
     if (!this._bmadCorePath) {
-      this._bmadCorePath = path.join(__dirname, '../../../baldwin-core');
+      this._bmadCorePath = path.join(__dirname, '../../../dist/baldwin-core');
     }
     return this._bmadCorePath;
   }

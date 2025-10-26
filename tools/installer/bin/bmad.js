@@ -39,12 +39,12 @@ try {
 
 program
   .version(version)
-  .description('BMad Method installer - Universal AI agent framework for any domain');
+  .description('Baldwin Writer installer - Your AI Content Studio, Orchestrated');
 
 program
   .command('install')
-  .description('Install BMad Method agents and tools')
-  .option('-f, --full', 'Install complete BMad Method')
+  .description('Install Baldwin Writer agents and workflows')
+  .option('-f, --full', 'Install complete Baldwin Writer')
   .option('-x, --expansion-only', 'Install only expansion packs (no bmad-core)')
   .option('-d, --directory <path>', 'Installation directory')
   .option(
@@ -86,7 +86,7 @@ program
 
 program
   .command('update')
-  .description('Update existing BMad installation')
+  .description('Update existing Baldwin Writer installation')
   .option('--force', 'Force update, overwriting modified files')
   .option('--dry-run', 'Show what would be updated without making changes')
   .action(async () => {
@@ -101,7 +101,7 @@ program
 // Command to check if updates are available
 program
   .command('update-check')
-  .description('Check for BMad Update')
+  .description('Check for Baldwin Writer updates')
   .action(async () => {
     console.log('Checking for updates...');
 
@@ -196,16 +196,16 @@ async function promptInstallation() {
   // Display ASCII logo
   console.log(
     chalk.bold.cyan(`
-██████╗ ███╗   ███╗ █████╗ ██████╗       ███╗   ███╗███████╗████████╗██╗  ██╗ ██████╗ ██████╗ 
-██╔══██╗████╗ ████║██╔══██╗██╔══██╗      ████╗ ████║██╔════╝╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗
-██████╔╝██╔████╔██║███████║██║  ██║█████╗██╔████╔██║█████╗     ██║   ███████║██║   ██║██║  ██║
-██╔══██╗██║╚██╔╝██║██╔══██║██║  ██║╚════╝██║╚██╔╝██║██╔══╝     ██║   ██╔══██║██║   ██║██║  ██║
-██████╔╝██║ ╚═╝ ██║██║  ██║██████╔╝      ██║ ╚═╝ ██║███████╗   ██║   ██║  ██║╚██████╔╝██████╔╝
-╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═════╝       ╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ 
+██████╗  █████╗ ██╗     ██████╗ ██╗    ██╗██╗███╗   ██╗    ██╗    ██╗██████╗ ██╗████████╗███████╗██████╗
+██╔══██╗██╔══██╗██║     ██╔══██╗██║    ██║██║████╗  ██║    ██║    ██║██╔══██╗██║╚══██╔══╝██╔════╝██╔══██╗
+██████╔╝███████║██║     ██║  ██║██║ █╗ ██║██║██╔██╗ ██║    ██║ █╗ ██║██████╔╝██║   ██║   █████╗  ██████╔╝
+██╔══██╗██╔══██║██║     ██║  ██║██║███╗██║██║██║╚██╗██║    ██║███╗██║██╔══██╗██║   ██║   ██╔══╝  ██╔══██╗
+██████╔╝██║  ██║███████╗██████╔╝╚███╔███╔╝██║██║ ╚████║    ╚███╔███╔╝██║  ██║██║   ██║   ███████╗██║  ██║
+╚═════╝ ╚═╝  ╚═╝╚══════╝╚═════╝  ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝     ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
   `),
   );
 
-  console.log(chalk.bold.magenta('🚀 Universal AI Agent Framework for Any Domain'));
+  console.log(chalk.bold.magenta('✍️  Your AI Content Studio, Orchestrated'));
   console.log(chalk.bold.blue(`✨ Installer v${version}\n`));
 
   const answers = {};
@@ -215,8 +215,9 @@ async function promptInstallation() {
     {
       type: 'input',
       name: 'directory',
-      message: 'Enter the full path to your project directory where BMad should be installed:',
-      default: path.resolve('.'),
+      message:
+        'Enter the full path to your project directory where Baldwin Writer should be installed:',
+      default: process.env.INIT_CWD || process.env.PWD || process.cwd(),
       validate: (input) => {
         if (!input.trim()) {
           return 'Please enter a valid project path';
@@ -241,11 +242,19 @@ async function promptInstallation() {
   const choices = [];
 
   // Load core config to get short-title
-  const coreConfigPath = path.join(__dirname, '..', '..', '..', 'baldwin-core', 'core-config.yaml');
+  const coreConfigPath = path.join(
+    __dirname,
+    '..',
+    '..',
+    '..',
+    'dist',
+    'baldwin-core',
+    'core-config.yaml',
+  );
   const coreConfig = yaml.load(await fs.readFile(coreConfigPath, 'utf8'));
-  const coreShortTitle = coreConfig['short-title'] || 'BMad Agile Core System';
+  const coreShortTitle = coreConfig['short-title'] || 'Baldwin Writer Core';
 
-  // Add BMad core option
+  // Add Baldwin Writer core option
   let bmadOptionText;
   if (state.type === 'v4_existing') {
     const currentVersion = state.manifest?.version || 'unknown';
@@ -309,7 +318,7 @@ async function promptInstallation() {
   answers.installType = selectedItems.includes('bmad-core') ? 'full' : 'expansion-only';
   answers.expansionPacks = selectedItems.filter((item) => item !== 'bmad-core');
 
-  // Ask sharding questions if installing BMad core
+  // Ask sharding questions if installing Baldwin Writer core
   if (selectedItems.includes('bmad-core')) {
     console.log(chalk.cyan('\n📋 Document Organization Settings'));
     console.log(chalk.dim('Configure how your project documentation should be organized.\n'));
@@ -450,7 +459,9 @@ async function promptInstallation() {
   if (ides.includes('github-copilot')) {
     console.log(chalk.cyan('\n🔧 GitHub Copilot Configuration'));
     console.log(
-      chalk.dim('BMad works best with specific VS Code settings for optimal agent experience.\n'),
+      chalk.dim(
+        'Baldwin Writer works best with specific VS Code settings for optimal agent experience.\n',
+      ),
     );
 
     const { configChoice } = await inquirer.prompt([
@@ -519,7 +530,9 @@ async function promptInstallation() {
   // Configure Auggie CLI (Augment Code) immediately if selected
   if (ides.includes('auggie-cli')) {
     console.log(chalk.cyan('\n📍 Auggie CLI Location Configuration'));
-    console.log(chalk.dim('Choose where to install BMad agents for Auggie CLI access.\n'));
+    console.log(
+      chalk.dim('Choose where to install Baldwin Writer agents for Auggie CLI access.\n'),
+    );
 
     const { selectedLocations } = await inquirer.prompt([
       {
