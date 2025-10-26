@@ -1,3 +1,7 @@
+## <small>0.2.8 (2025-10-26)</small>
+
+- fix: keep IDE configs at project root for discovery ([4006916](https://github.com/Ricoledan/baldwin-writer/commit/4006916))
+
 ## <small>0.2.7 (2025-10-26)</small>
 
 - fix: use configured rule-dir for Claude Code installation ([32a9322](https://github.com/Ricoledan/baldwin-writer/commit/32a9322))
