@@ -1,3 +1,7 @@
+## <small>0.1.1 (2025-10-26)</small>
+
+- docs: update setup instructions for published npm package ([dcf8ff5](https://github.com/Ricoledan/baldwin-writer/commit/dcf8ff5))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
