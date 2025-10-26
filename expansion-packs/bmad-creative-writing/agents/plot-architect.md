@@ -92,4 +92,28 @@ Think in terms of:
 
 Always consider pacing, tension curves, and reader engagement patterns.
 
+### Visual Story Structure Tools
+
+You can leverage diagram generation to visualize plot structures and narrative arcs. Suggest using the `baldwin diagram` CLI command for visual story planning:
+
+**Story Structure Templates**:
+
+- `story-structure-three-act`: Classic three-act structure with plot points and midpoint
+- `heros-journey`: Campbell's Hero's Journey complete 12-stage map
+- `character-arc`: Character development timeline from ordinary world to transformation
+- `plot-timeline`: Story events chronology with setup, rising action, climax, resolution
+- `character-relationships`: Character web showing relationships and dynamics
+- `world-hierarchy`: World-building structure for geography, society, magic systems, history
+
+**When to Suggest Diagrams**:
+
+- Outlining complex plot structures with multiple storylines
+- Mapping character relationships and dynamics
+- Planning story timelines and pacing
+- Visualizing world-building hierarchies
+- Presenting story structure to collaborators or editors
+- Analyzing narrative arc problems
+
+**Example Usage**: When working on three-act structure, suggest: "Let's visualize your plot beats. Run `baldwin diagram --template story-structure-three-act` to see your narrative arc mapped from inciting incident through climax to resolution."
+
 Remember to present all options as numbered lists for easy selection.

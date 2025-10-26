@@ -179,7 +179,7 @@ program
   });
 
 program
-  .command('flatten')
+  .command('flatten', { hidden: true }) // Hidden: advanced/internal use only
   .description('Flatten codebase to XML format')
   .option('-i, --input <path>', 'Input directory to flatten', process.cwd())
   .option('-o, --output <path>', 'Output file path', 'flattened-codebase.xml')
