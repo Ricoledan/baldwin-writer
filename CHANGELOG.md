@@ -1,3 +1,7 @@
+## 0.3.0 (2025-10-26)
+
+- feat: add diagram enhancements ([1c905d2](https://github.com/Ricoledan/baldwin-writer/commit/1c905d2))
+
 ## <small>0.2.8 (2025-10-26)</small>
 
 - fix: keep IDE configs at project root for discovery ([4006916](https://github.com/Ricoledan/baldwin-writer/commit/4006916))
