@@ -16,11 +16,11 @@ class ResourceLocator {
   }
 
   /**
-   * Get the base path for bmad-core
+   * Get the base path for baldwin-core
    */
   getBmadCorePath() {
     if (!this._bmadCorePath) {
-      this._bmadCorePath = path.join(__dirname, '../../../node_modules/bmad-method/bmad-core');
+      this._bmadCorePath = path.join(__dirname, '../../../baldwin-core');
     }
     return this._bmadCorePath;
   }
@@ -251,7 +251,7 @@ class ResourceLocator {
         if (Array.isArray(deps)) {
           byType[type] = deps;
           for (const dep of deps) {
-            allDeps.push(`.bmad-core/${type}/${dep}`);
+            allDeps.push(`.baldwin-core/${type}/${dep}`);
           }
         }
       }

@@ -99,7 +99,7 @@ class IdeSetup extends BaseIdeSetup {
 
   async setupOpenCode(installDir, selectedAgent, spinner = null, preConfiguredSettings = null) {
     // Minimal JSON-only integration per plan:
-    // - If opencode.json or opencode.jsonc exists: only ensure instructions include .bmad-core/core-config.yaml
+    // - If opencode.json or opencode.jsonc exists: only ensure instructions include .baldwin-core/core-config.yaml
     // - If none exists: create minimal opencode.jsonc with $schema and instructions array including that file
 
     const jsonPath = path.join(installDir, 'opencode.json');
@@ -153,8 +153,8 @@ class IdeSetup extends BaseIdeSetup {
     }
 
     const ensureInstructionRef = (obj) => {
-      const preferred = '.bmad-core/core-config.yaml';
-      const alt = './.bmad-core/core-config.yaml';
+      const preferred = '.baldwin-core/core-config.yaml';
+      const alt = './.baldwin-core/core-config.yaml';
       if (!obj.instructions) obj.instructions = [];
       if (!Array.isArray(obj.instructions)) obj.instructions = [obj.instructions];
       // Normalize alternative form (with './') to preferred without './'
@@ -540,7 +540,7 @@ class IdeSetup extends BaseIdeSetup {
         section += `## How To Use With OpenCode\n\n`;
         section += `- Run \`opencode\` in this project. OpenCode will read \`AGENTS.md\` and your OpenCode config (opencode.json[c]).\n`;
         section += `- Reference a role naturally, e.g., "As dev, implement ..." or use commands defined in your BMAD tasks.\n`;
-        section += `- Commit \`.bmad-core\` and \`AGENTS.md\` if you want teammates to share the same configuration.\n`;
+        section += `- Commit \`.baldwin-core\` and \`AGENTS.md\` if you want teammates to share the same configuration.\n`;
         section += `- Refresh this section after BMAD updates: \`npx bmad-method install -f -i opencode\`.\n\n`;
 
         section += `### Helpful Commands\n\n`;
@@ -709,7 +709,7 @@ class IdeSetup extends BaseIdeSetup {
     // Create minimal opencode.jsonc
     const minimal = {
       $schema: 'https://opencode.ai/config.json',
-      instructions: ['.bmad-core/core-config.yaml'],
+      instructions: ['.baldwin-core/core-config.yaml'],
       agent: {},
       command: {},
     };
@@ -753,7 +753,7 @@ class IdeSetup extends BaseIdeSetup {
     section += `## How To Use With Codex\n\n`;
     section += `- Codex CLI: run \`codex\` in this project. Reference an agent naturally, e.g., "As dev, implement ...".\n`;
     section += `- Codex Web: open this repo and reference roles the same way; Codex reads \`AGENTS.md\`.\n`;
-    section += `- Commit \`.bmad-core\` and this \`AGENTS.md\` file to your repo so Codex (Web/CLI) can read full agent definitions.\n`;
+    section += `- Commit \`.baldwin-core\` and this \`AGENTS.md\` file to your repo so Codex (Web/CLI) can read full agent definitions.\n`;
     section += `- Refresh this section after agent updates: \`npx bmad-method install -f -i codex\`.\n\n`;
 
     section += `### Helpful Commands\n\n`;
@@ -866,24 +866,24 @@ class IdeSetup extends BaseIdeSetup {
     // Adjust .gitignore behavior depending on Codex mode
     try {
       const gitignorePath = path.join(installDir, '.gitignore');
-      const ignoreLines = ['# BMAD (local only)', '.bmad-core/', '.bmad-*/'];
+      const ignoreLines = ['# BMAD (local only)', '.baldwin-core/', '.bmad-*/'];
       const exists = await fileManager.pathExists(gitignorePath);
       if (options.webEnabled) {
         if (exists) {
           let gi = await fileManager.readFile(gitignorePath);
           const updated = gi
             .split(/\r?\n/)
-            .filter((l) => !/^\s*\.bmad-core\/?\s*$/.test(l) && !/^\s*\.bmad-\*\/?\s*$/.test(l))
+            .filter((l) => !/^\s*\.baldwin-core\/?\s*$/.test(l) && !/^\s*\.bmad-\*\/?\s*$/.test(l))
             .join('\n');
           if (updated !== gi) {
             await fileManager.writeFile(gitignorePath, updated.trimEnd() + '\n');
-            console.log(chalk.green('✓ Updated .gitignore to include .bmad-core in commits'));
+            console.log(chalk.green('✓ Updated .gitignore to include .baldwin-core in commits'));
           }
         }
       } else {
         // Local-only: add ignores if missing
         let base = exists ? await fileManager.readFile(gitignorePath) : '';
-        const haveCore = base.includes('.bmad-core/');
+        const haveCore = base.includes('.baldwin-core/');
         const haveStar = base.includes('.bmad-*/');
         if (!haveCore || !haveStar) {
           const sep = base.endsWith('\n') || base.length === 0 ? '' : '\n';
@@ -892,7 +892,9 @@ class IdeSetup extends BaseIdeSetup {
             .join('\n');
           const out = base + sep + add + '\n';
           await fileManager.writeFile(gitignorePath, out);
-          console.log(chalk.green('✓ Added .bmad-core/* to .gitignore for local-only Codex setup'));
+          console.log(
+            chalk.green('✓ Added .baldwin-core/* to .gitignore for local-only Codex setup'),
+          );
         }
       }
     } catch {
@@ -934,7 +936,7 @@ class IdeSetup extends BaseIdeSetup {
       coreSlashPrefix,
       coreAgents,
       coreTasks,
-      '.bmad-core',
+      '.baldwin-core',
     );
 
     // Setup expansion pack commands
@@ -972,7 +974,7 @@ class IdeSetup extends BaseIdeSetup {
       coreSlashPrefix,
       coreAgents,
       coreTasks,
-      '.bmad-core',
+      '.baldwin-core',
     );
 
     // Setup expansion pack commands
@@ -1107,7 +1109,7 @@ class IdeSetup extends BaseIdeSetup {
       coreSlashPrefix,
       coreAgents,
       coreTasks,
-      '.bmad-core',
+      '.baldwin-core',
     );
 
     // Setup expansion pack commands
@@ -1394,7 +1396,7 @@ class IdeSetup extends BaseIdeSetup {
   async findAgentPath(agentId, installDir) {
     // Try to find the agent file in various locations
     const possiblePaths = [
-      path.join(installDir, '.bmad-core', 'agents', `${agentId}.md`),
+      path.join(installDir, '.baldwin-core', 'agents', `${agentId}.md`),
       path.join(installDir, 'agents', `${agentId}.md`),
     ];
 
@@ -1418,8 +1420,8 @@ class IdeSetup extends BaseIdeSetup {
     const glob = require('glob');
     const allAgentIds = [];
 
-    // Check core agents in .bmad-core or root
-    let agentsDir = path.join(installDir, '.bmad-core', 'agents');
+    // Check core agents in .baldwin-core or root
+    let agentsDir = path.join(installDir, '.baldwin-core', 'agents');
     if (!(await fileManager.pathExists(agentsDir))) {
       agentsDir = path.join(installDir, 'agents');
     }
@@ -1444,8 +1446,8 @@ class IdeSetup extends BaseIdeSetup {
   async getCoreAgentIds(installDir) {
     const allAgentIds = [];
 
-    // Check core agents in .bmad-core or root only
-    let agentsDir = path.join(installDir, '.bmad-core', 'agents');
+    // Check core agents in .baldwin-core or root only
+    let agentsDir = path.join(installDir, '.baldwin-core', 'agents');
     if (!(await fileManager.pathExists(agentsDir))) {
       agentsDir = path.join(installDir, 'bmad-core', 'agents');
     }
@@ -1463,8 +1465,8 @@ class IdeSetup extends BaseIdeSetup {
     const allTaskIds = [];
     const glob = require('glob');
 
-    // Check core tasks in .bmad-core or root only
-    let tasksDir = path.join(installDir, '.bmad-core', 'tasks');
+    // Check core tasks in .baldwin-core or root only
+    let tasksDir = path.join(installDir, '.baldwin-core', 'tasks');
     if (!(await fileManager.pathExists(tasksDir))) {
       tasksDir = path.join(installDir, 'bmad-core', 'tasks');
     }
@@ -1488,7 +1490,7 @@ class IdeSetup extends BaseIdeSetup {
   async getAgentTitle(agentId, installDir) {
     // Try to find the agent file in various locations
     const possiblePaths = [
-      path.join(installDir, '.bmad-core', 'agents', `${agentId}.md`),
+      path.join(installDir, '.baldwin-core', 'agents', `${agentId}.md`),
       path.join(installDir, 'agents', `${agentId}.md`),
     ];
 
@@ -1529,8 +1531,8 @@ class IdeSetup extends BaseIdeSetup {
     const glob = require('glob');
     const allTaskIds = [];
 
-    // Check core tasks in .bmad-core or root
-    let tasksDir = path.join(installDir, '.bmad-core', 'tasks');
+    // Check core tasks in .baldwin-core or root
+    let tasksDir = path.join(installDir, '.baldwin-core', 'tasks');
     if (!(await fileManager.pathExists(tasksDir))) {
       tasksDir = path.join(installDir, 'bmad-core', 'tasks');
     }
@@ -1573,7 +1575,7 @@ class IdeSetup extends BaseIdeSetup {
   async findTaskPath(taskId, installDir) {
     // Try to find the task file in various locations
     const possiblePaths = [
-      path.join(installDir, '.bmad-core', 'tasks', `${taskId}.md`),
+      path.join(installDir, '.baldwin-core', 'tasks', `${taskId}.md`),
       path.join(installDir, 'bmad-core', 'tasks', `${taskId}.md`),
       path.join(installDir, 'common', 'tasks', `${taskId}.md`),
     ];
@@ -1607,7 +1609,7 @@ class IdeSetup extends BaseIdeSetup {
 
   async getCoreSlashPrefix(installDir) {
     try {
-      const coreConfigPath = path.join(installDir, '.bmad-core', 'core-config.yaml');
+      const coreConfigPath = path.join(installDir, '.baldwin-core', 'core-config.yaml');
       if (!(await fileManager.pathExists(coreConfigPath))) {
         // Try bmad-core directory
         const altConfigPath = path.join(installDir, 'bmad-core', 'core-config.yaml');
@@ -1636,7 +1638,7 @@ class IdeSetup extends BaseIdeSetup {
     const dotExpansions = glob.sync('.bmad-*', { cwd: installDir });
 
     for (const dotExpansion of dotExpansions) {
-      if (dotExpansion !== '.bmad-core') {
+      if (dotExpansion !== '.baldwin-core') {
         const packPath = path.join(installDir, dotExpansion);
         const packName = dotExpansion.slice(1); // remove the dot
         expansionPacks.push({
@@ -1962,7 +1964,7 @@ class IdeSetup extends BaseIdeSetup {
         }
         mdContent += '\n```\n\n';
         mdContent += '## Project Standards\n\n';
-        mdContent += `- Always maintain consistency with project documentation in .bmad-core/\n`;
+        mdContent += `- Always maintain consistency with project documentation in .baldwin-core/\n`;
         mdContent += `- Follow the agent's specific guidelines and constraints\n`;
         mdContent += `- Update relevant project files when making changes\n`;
         const relativePath = path.relative(installDir, agentPath).replaceAll('\\', '/');
