@@ -49,7 +49,7 @@ class IdeSetup extends BaseIdeSetup {
         return this.setupOpenCode(installDir, selectedAgent, spinner, preConfiguredSettings);
       }
       case 'claude-code': {
-        return this.setupClaudeCode(installDir, selectedAgent);
+        return this.setupClaudeCode(installDir, selectedAgent, ideConfig);
       }
       case 'iflow-cli': {
         return this.setupIFlowCli(installDir, selectedAgent);
@@ -963,11 +963,12 @@ class IdeSetup extends BaseIdeSetup {
     return true;
   }
 
-  async setupClaudeCode(installDir, selectedAgent) {
+  async setupClaudeCode(installDir, selectedAgent, ideConfig) {
     // Setup bmad-core commands
     const coreSlashPrefix = await this.getCoreSlashPrefix(installDir);
     const coreAgents = selectedAgent ? [selectedAgent] : await this.getCoreAgentIds(installDir);
     const coreTasks = await this.getCoreTaskIds(installDir);
+    const commandsBaseDir = ideConfig['rule-dir'] || '.claude/commands/Baldwin';
     await this.setupClaudeCodeForPackage(
       installDir,
       'core',
@@ -975,6 +976,7 @@ class IdeSetup extends BaseIdeSetup {
       coreAgents,
       coreTasks,
       '.baldwin/core',
+      commandsBaseDir,
     );
 
     // Setup expansion pack commands
@@ -994,6 +996,7 @@ class IdeSetup extends BaseIdeSetup {
           packAgents,
           packTasks,
           rootPath,
+          commandsBaseDir,
         );
       }
     }
@@ -1008,8 +1011,9 @@ class IdeSetup extends BaseIdeSetup {
     agentIds,
     taskIds,
     rootPath,
+    configuredDir,
   ) {
-    const commandsBaseDir = path.join(installDir, '.claude', 'commands', slashPrefix);
+    const commandsBaseDir = path.join(installDir, configuredDir);
     const agentsDir = path.join(commandsBaseDir, 'agents');
     const tasksDir = path.join(commandsBaseDir, 'tasks');
 
