@@ -11,13 +11,13 @@
     "creative-writing",
     "content-creation"
   ],
-  "homepage": "https://github.com/ricoledan/baldwin-writer#readme",
+  "homepage": "https://github.com/Ricoledan/baldwin-writer#readme",
   "bugs": {
-    "url": "https://github.com/ricoledan/baldwin-writer/issues"
+    "url": "https://github.com/Ricoledan/baldwin-writer/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ricoledan/baldwin-writer.git"
+    "url": "git+https://github.com/Ricoledan/baldwin-writer.git"
   },
   "license": "MIT",
   "author": "Rico Ledan",
