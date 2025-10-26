@@ -21,7 +21,7 @@ ide-configurations:
       # 3. The agent will adopt that persona for the conversation
   claude-code:
     name: Claude Code
-    rule-dir: .baldwin/.claude/commands/Baldwin/
+    rule-dir: .claude/commands/Baldwin/
     format: multi-file
     command-suffix: .md
     instructions: |
