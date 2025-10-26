@@ -1,3 +1,7 @@
+## <small>0.2.5 (2025-10-26)</small>
+
+- refactor: reorganize to .baldwin/ structure and remove redundant agents ([06e5fdf](https://github.com/Ricoledan/baldwin-writer/commit/06e5fdf))
+
 ## <small>0.1.1 (2025-10-26)</small>
 
 - docs: update setup instructions for published npm package ([dcf8ff5](https://github.com/Ricoledan/baldwin-writer/commit/dcf8ff5))
