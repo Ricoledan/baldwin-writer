@@ -134,3 +134,24 @@ build:
   include_bmad_core: true
   merge_strategy: layer # Baldwin layers on top of BMAD
   output_prefix: baldwin-
+
+# Output management configuration
+output:
+  enabled: true
+  base_dir: output
+  structure: collections # 'collections' or 'flat'
+  default_stages:
+    - drafts
+    - final
+    - research
+  metadata:
+    track_versions: true
+    track_authors: true
+    track_timestamps: true
+  integrations:
+    obsidian:
+      enabled: false # Future: Obsidian vault sync
+      vault_path: null
+    notion:
+      enabled: false # Future: Notion database sync
+      database_id: null

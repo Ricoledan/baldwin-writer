@@ -1,5 +1,9 @@
 # Baldwin Writer
 
+[![npm version](https://img.shields.io/npm/v/baldwin-writer.svg)](https://www.npmjs.com/package/baldwin-writer)
+[![npm downloads](https://img.shields.io/npm/dm/baldwin-writer.svg)](https://www.npmjs.com/package/baldwin-writer)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 **Your AI Content Studio, Orchestrated**
 
 ## Overview

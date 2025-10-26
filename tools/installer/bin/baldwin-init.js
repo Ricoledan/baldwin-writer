@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const { program } = require('commander');
 const path = require('node:path');
 const fs = require('fs-extra');
@@ -17,7 +15,9 @@ try {
 
 program
   .version(version)
-  .description('Baldwin Writer - Initialize content creation workspace with Claude Code integration');
+  .description(
+    'Baldwin Writer - Initialize content creation workspace with Claude Code integration',
+  );
 
 program
   .command('init')
@@ -50,20 +50,18 @@ async function initializeBaldwinWriter(options) {
 
   // Check if already initialized
   const claudeDir = path.join(targetDir, '.claude', 'commands', 'Baldwin');
-  if (await fs.pathExists(claudeDir)) {
-    if (!options.yes) {
-      const { proceed } = await inquirer.prompt([
-        {
-          type: 'confirm',
-          name: 'proceed',
-          message: 'Baldwin Writer appears to be already initialized. Overwrite?',
-          default: false,
-        },
-      ]);
-      if (!proceed) {
-        console.log(chalk.yellow('\n✓ Initialization cancelled'));
-        process.exit(0);
-      }
+  if ((await fs.pathExists(claudeDir)) && !options.yes) {
+    const { proceed } = await inquirer.prompt([
+      {
+        type: 'confirm',
+        name: 'proceed',
+        message: 'Baldwin Writer appears to be already initialized. Overwrite?',
+        default: false,
+      },
+    ]);
+    if (!proceed) {
+      console.log(chalk.yellow('\n✓ Initialization cancelled'));
+      process.exit(0);
     }
   }
 
@@ -142,7 +140,11 @@ async function initializeBaldwinWriter(options) {
         agentContent;
 
       await fs.writeFile(commandPath, commandContent);
-      console.log(chalk.green(`  ✓ ${agentConfig.icon}  ${agentConfig.command.padEnd(25)} ${agentConfig.description}`));
+      console.log(
+        chalk.green(
+          `  ✓ ${agentConfig.icon}  ${agentConfig.command.padEnd(25)} ${agentConfig.description}`,
+        ),
+      );
     } else {
       console.log(chalk.yellow(`  ⚠ Skipped ${agentId} (file not found)`));
     }
@@ -162,9 +164,7 @@ async function initializeBaldwinWriter(options) {
       const taskConfig = ideConfig.tasks[taskId];
 
       const commandContent =
-        `# ${taskConfig.command} Command\n\n` +
-        `${taskConfig.description}\n\n` +
-        taskContent;
+        `# ${taskConfig.command} Command\n\n` + `${taskConfig.description}\n\n` + taskContent;
 
       await fs.writeFile(commandPath, commandContent);
       console.log(chalk.green(`  ✓ ${taskConfig.command.padEnd(25)} ${taskConfig.description}`));
@@ -196,6 +196,16 @@ async function initializeBaldwinWriter(options) {
         content: 'content',
         output: 'output',
       },
+      output: {
+        structure: 'collections',
+        stages: ['drafts', 'final', 'research'],
+        integrations: {
+          obsidian: {
+            enabled: false,
+            vault_path: null,
+          },
+        },
+      },
     };
 
     await fs.writeFile(configPath, yaml.dump(projectConfig));
@@ -211,12 +221,12 @@ async function initializeBaldwinWriter(options) {
   console.log(chalk.gray('  3. Type /help in any agent to see available commands\n'));
 
   console.log(chalk.cyan('Available agents:'));
-  agentsToInstall.forEach((agentId) => {
+  for (const agentId of agentsToInstall) {
     const agent = ideConfig.agents[agentId];
     if (agent) {
       console.log(chalk.gray(`  ${agent.command} - ${agent.description}`));
     }
-  });
+  }
 
   console.log(chalk.white('\n📚 Documentation: https://github.com/your-repo/baldwin-writer\n'));
 }
@@ -237,12 +247,12 @@ workflows from ideation to publication.
 `;
 
   // List installed agents
-  installedAgents.forEach((agentId) => {
+  for (const agentId of installedAgents) {
     const agent = ideConfig.agents[agentId];
     if (agent) {
       content += `- **${agent.command}** ${agent.icon} - ${agent.description}\n`;
     }
-  });
+  }
 
   content += `
 ## Getting Started
@@ -277,7 +287,7 @@ if (require.main === module) {
   program.parse(process.argv);
 
   // Show help if no command provided
-  if (!process.argv.slice(2).length) {
+  if (process.argv.slice(2).length === 0) {
     program.outputHelp();
   }
 }
