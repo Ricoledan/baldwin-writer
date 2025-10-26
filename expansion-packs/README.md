@@ -18,17 +18,18 @@ Expansion packs extend Baldwin Writer with specialized agents, templates, and wo
 
 See `bmad-creative-writing/README.md` for details.
 
-### Tech Content Pack
+### AI & ML Content Pack
 
-**Domain**: Technical content for developers, DevOps, software engineering
+**Domain**: AI and machine learning content for practitioners, researchers, engineers
 
-- Tech-specific topic research methodologies
-- 30+ validated technical topic examples with BADVC/5-point scores
-- Comprehensive tech research sources (Stack Overflow, GitHub, Dev.to, HackerNews, etc.)
-- Developer audience personas and validation criteria
-- Pre-built tech topic clusters (API design, Kubernetes, microservices, CI/CD)
+- AI-specific topic research methodologies
+- 25+ validated AI/ML topic examples with BADVC/5-point scores
+- Comprehensive AI research sources (arXiv, research labs, AI communities, newsletters)
+- How to consume and communicate AI research papers
+- AI audience personas and validation criteria
+- Pre-built AI topic clusters (Prompt Engineering, RAG, Fine-tuning, AI Agents)
 
-See `tech-content/README.md` for details.
+See `ai-ml-content/README.md` for details.
 
 ## Future Packs (Planned)
 
