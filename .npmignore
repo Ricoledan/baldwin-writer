@@ -12,7 +12,7 @@ IMPLEMENTATION_STATUS.md
 CLAUDE.md
 
 # Build artifacts
-dist/
+# NOTE: dist/ is NOT ignored - it contains the merged baldwin-core for distribution
 build/
 .bmad*/
 
