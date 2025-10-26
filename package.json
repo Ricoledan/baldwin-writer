@@ -51,7 +51,7 @@
     "lint:fix": "eslint . --ext .js,.cjs,.mjs,.yaml --fix",
     "list:agents": "node tools/cli.js list:agents",
     "prepare": "husky",
-    "prepublishOnly": "npm run build:core && npm run validate && npm run build",
+    "prepublishOnly": "npm run build:core && npm run validate && npm run build -- --no-clean",
     "release:major": "npm version major -m 'chore(release): %s'",
     "release:minor": "npm version minor -m 'chore(release): %s'",
     "release:patch": "npm version patch -m 'chore(release): %s'",
