@@ -34,8 +34,8 @@ class Installer {
         ? config.directory
         : path.resolve(originalCwd, config.directory);
 
-      if (path.basename(installDir) === '.baldwin-core') {
-        // If user points directly to .baldwin-core, treat its parent as the project root
+      if (path.basename(installDir) === '.baldwin/core') {
+        // If user points directly to .baldwin/core, treat its parent as the project root
         installDir = path.dirname(installDir);
       }
 
@@ -173,8 +173,8 @@ class Installer {
       return state; // clean install
     }
 
-    // Check for V4 installation (has .baldwin-core with manifest)
-    const bmadCorePath = path.join(installDir, '.baldwin-core');
+    // Check for V4 installation (has .baldwin/core with manifest)
+    const bmadCorePath = path.join(installDir, '.baldwin/core');
     const manifestPath = path.join(bmadCorePath, 'install-manifest.yaml');
 
     if (await fileManager.pathExists(manifestPath)) {
@@ -193,7 +193,7 @@ class Installer {
       return state;
     }
 
-    // Check for .baldwin-core without manifest (broken V4 or manual copy)
+    // Check for .baldwin/core without manifest (broken V4 or manual copy)
     if (await fileManager.pathExists(bmadCorePath)) {
       state.type = 'unknown_existing';
       state.hasBmadCore = true;
@@ -227,23 +227,23 @@ class Installer {
 
     switch (config.installType) {
       case 'full': {
-        // Full installation - copy entire .baldwin-core folder as a subdirectory
-        spinner.text = 'Copying complete .baldwin-core folder...';
+        // Full installation - copy entire .baldwin/core folder as a subdirectory
+        spinner.text = 'Copying complete .baldwin/core folder...';
         const sourceDir = resourceLocator.getBmadCorePath();
-        const bmadCoreDestDir = path.join(installDir, '.baldwin-core');
+        const bmadCoreDestDir = path.join(installDir, '.baldwin/core');
         await fileManager.copyDirectoryWithRootReplacement(
           sourceDir,
           bmadCoreDestDir,
-          '.baldwin-core',
+          '.baldwin/core',
         );
 
-        // Copy common/ items to .baldwin-core
+        // Copy common/ items to .baldwin/core
         spinner.text = 'Copying common utilities...';
-        await this.copyCommonItems(installDir, '.baldwin-core', spinner);
+        await this.copyCommonItems(installDir, '.baldwin/core', spinner);
 
-        // Copy documentation files from docs/ to .baldwin-core
+        // Copy documentation files from docs/ to .baldwin/core
         spinner.text = 'Copying documentation files...';
-        await this.copyDocsItems(installDir, '.baldwin-core', spinner);
+        await this.copyDocsItems(installDir, '.baldwin/core', spinner);
 
         // Get list of all files for manifest
         const foundFiles = await resourceLocator.findFiles('**/*', {
@@ -251,7 +251,7 @@ class Installer {
           nodir: true,
           ignore: ['**/.git/**', '**/node_modules/**'],
         });
-        files = foundFiles.map((file) => path.join('.baldwin-core', file));
+        files = foundFiles.map((file) => path.join('.baldwin/core', file));
 
         break;
       }
@@ -263,16 +263,16 @@ class Installer {
         const agentPath = configLoader.getAgentPath(config.agent);
         const destinationAgentPath = path.join(
           installDir,
-          '.baldwin-core',
+          '.baldwin/core',
           'agents',
           `${config.agent}.md`,
         );
         await fileManager.copyFileWithRootReplacement(
           agentPath,
           destinationAgentPath,
-          '.baldwin-core',
+          '.baldwin/core',
         );
-        files.push(`.baldwin-core/agents/${config.agent}.md`);
+        files.push(`.baldwin/core/agents/${config.agent}.md`);
 
         // Copy dependencies
         const { all: dependencies } = await resourceLocator.getAgentDependencies(config.agent);
@@ -284,15 +284,15 @@ class Installer {
           if (dep.includes('*')) {
             // Handle glob patterns with {root} replacement
             const copiedFiles = await fileManager.copyGlobPattern(
-              dep.replace('.baldwin-core/', ''),
+              dep.replace('.baldwin/core/', ''),
               sourceBase,
-              path.join(installDir, '.baldwin-core'),
-              '.baldwin-core',
+              path.join(installDir, '.baldwin/core'),
+              '.baldwin/core',
             );
-            files.push(...copiedFiles.map((f) => `.baldwin-core/${f}`));
+            files.push(...copiedFiles.map((f) => `.baldwin/core/${f}`));
           } else {
             // Handle single files with {root} replacement if needed
-            const sourcePath = path.join(sourceBase, dep.replace('.baldwin-core/', ''));
+            const sourcePath = path.join(sourceBase, dep.replace('.baldwin/core/', ''));
             const destinationPath = path.join(installDir, dep);
 
             const needsRootReplacement =
@@ -303,7 +303,7 @@ class Installer {
               ? fileManager.copyFileWithRootReplacement(
                   sourcePath,
                   destinationPath,
-                  '.baldwin-core',
+                  '.baldwin/core',
                 )
               : fileManager.copyFile(sourcePath, destinationPath));
 
@@ -313,14 +313,14 @@ class Installer {
           }
         }
 
-        // Copy common/ items to .baldwin-core
+        // Copy common/ items to .baldwin/core
         spinner.text = 'Copying common utilities...';
-        const commonFiles = await this.copyCommonItems(installDir, '.baldwin-core', spinner);
+        const commonFiles = await this.copyCommonItems(installDir, '.baldwin/core', spinner);
         files.push(...commonFiles);
 
-        // Copy documentation files from docs/ to .baldwin-core
+        // Copy documentation files from docs/ to .baldwin/core
         spinner.text = 'Copying documentation files...';
-        const documentFiles = await this.copyDocsItems(installDir, '.baldwin-core', spinner);
+        const documentFiles = await this.copyDocsItems(installDir, '.baldwin/core', spinner);
         files.push(...documentFiles);
 
         break;
@@ -340,15 +340,15 @@ class Installer {
           if (dep.includes('*')) {
             // Handle glob patterns with {root} replacement
             const copiedFiles = await fileManager.copyGlobPattern(
-              dep.replace('.baldwin-core/', ''),
+              dep.replace('.baldwin/core/', ''),
               sourceBase,
-              path.join(installDir, '.baldwin-core'),
-              '.baldwin-core',
+              path.join(installDir, '.baldwin/core'),
+              '.baldwin/core',
             );
-            files.push(...copiedFiles.map((f) => `.baldwin-core/${f}`));
+            files.push(...copiedFiles.map((f) => `.baldwin/core/${f}`));
           } else {
             // Handle single files with {root} replacement if needed
-            const sourcePath = path.join(sourceBase, dep.replace('.baldwin-core/', ''));
+            const sourcePath = path.join(sourceBase, dep.replace('.baldwin/core/', ''));
             const destinationPath = path.join(installDir, dep);
 
             const needsRootReplacement =
@@ -359,7 +359,7 @@ class Installer {
               ? fileManager.copyFileWithRootReplacement(
                   sourcePath,
                   destinationPath,
-                  '.baldwin-core',
+                  '.baldwin/core',
                 )
               : fileManager.copyFile(sourcePath, destinationPath));
 
@@ -369,20 +369,20 @@ class Installer {
           }
         }
 
-        // Copy common/ items to .baldwin-core
+        // Copy common/ items to .baldwin/core
         spinner.text = 'Copying common utilities...';
-        const commonFiles = await this.copyCommonItems(installDir, '.baldwin-core', spinner);
+        const commonFiles = await this.copyCommonItems(installDir, '.baldwin/core', spinner);
         files.push(...commonFiles);
 
-        // Copy documentation files from docs/ to .baldwin-core
+        // Copy documentation files from docs/ to .baldwin/core
         spinner.text = 'Copying documentation files...';
-        const documentFiles = await this.copyDocsItems(installDir, '.baldwin-core', spinner);
+        const documentFiles = await this.copyDocsItems(installDir, '.baldwin/core', spinner);
         files.push(...documentFiles);
 
         break;
       }
       case 'expansion-only': {
-        // Expansion-only installation - DO NOT create .baldwin-core
+        // Expansion-only installation - DO NOT create .baldwin/core
         // Only install expansion packs
         spinner.text = 'Installing expansion packs only...';
 
@@ -659,7 +659,7 @@ class Installer {
     console.log(`   Directory: ${installDir}`);
 
     if (state.hasBmadCore) {
-      console.log('   Found: .baldwin-core directory (but no manifest)');
+      console.log('   Found: .baldwin/core directory (but no manifest)');
     }
     if (state.hasOtherFiles) {
       console.log('   Found: Other files in directory');
@@ -797,7 +797,7 @@ class Installer {
         // Skip the manifest file itself
         if (file.endsWith('install-manifest.yaml')) continue;
 
-        const relativePath = file.replace('.baldwin-core/', '');
+        const relativePath = file.replace('.baldwin/core/', '');
         const destinationPath = path.join(installDir, file);
 
         // Check if this is a common/ file that needs special processing
@@ -808,7 +808,7 @@ class Installer {
           // This is a common/ file - needs template processing
           const fs = require('node:fs').promises;
           const content = await fs.readFile(commonSourcePath, 'utf8');
-          const updatedContent = content.replaceAll('{root}', '.baldwin-core');
+          const updatedContent = content.replaceAll('{root}', '.baldwin/core');
           await fileManager.ensureDirectory(path.dirname(destinationPath));
           await fs.writeFile(destinationPath, updatedContent, 'utf8');
           spinner.text = `Restored: ${file}`;
@@ -871,8 +871,8 @@ class Installer {
   async performReinstall(config, installDir, spinner) {
     spinner.start('Preparing to reinstall Baldwin Writer...');
 
-    // Remove existing .baldwin-core
-    const bmadCorePath = path.join(installDir, '.baldwin-core');
+    // Remove existing .baldwin/core
+    const bmadCorePath = path.join(installDir, '.baldwin/core');
     if (await fileManager.pathExists(bmadCorePath)) {
       spinner.text = 'Removing existing installation...';
       await fileManager.removeDirectory(bmadCorePath);
@@ -908,7 +908,7 @@ class Installer {
     // Information about installation components
     console.log(chalk.bold('\n🎯 Installation Summary:'));
     if (config.installType !== 'expansion-only') {
-      console.log(chalk.green('✓ .baldwin-core framework installed with all agents and workflows'));
+      console.log(chalk.green('✓ .baldwin/core framework installed with all agents and workflows'));
     }
 
     if (config.expansionPacks && config.expansionPacks.length > 0) {
@@ -967,7 +967,7 @@ class Installer {
     // Important notice to read the user guide
     console.log(
       chalk.red.bold(
-        '\n📖 IMPORTANT: Please read the user guide at docs/user-guide.md (also installed at .baldwin-core/user-guide.md)',
+        '\n📖 IMPORTANT: Please read the user guide at docs/user-guide.md (also installed at .baldwin/core/user-guide.md)',
       ),
     );
     console.log(
@@ -1813,7 +1813,7 @@ class Installer {
     // Find all dot folders that might be expansion packs
     const dotFolders = glob.sync('.*', {
       cwd: installDir,
-      ignore: ['.git', '.git/**', '.baldwin-core', '.baldwin-core/**'],
+      ignore: ['.git', '.git/**', '.baldwin/core', '.baldwin/core/**'],
     });
 
     for (const folder of dotFolders) {
@@ -1970,22 +1970,22 @@ class Installer {
   }
 
   async findInstallation() {
-    // Look for .baldwin-core in current directory or parent directories
+    // Look for .baldwin/core in current directory or parent directories
     let currentDir = process.cwd();
 
     while (currentDir !== path.dirname(currentDir)) {
-      const bmadDir = path.join(currentDir, '.baldwin-core');
+      const bmadDir = path.join(currentDir, '.baldwin/core');
       const manifestPath = path.join(bmadDir, 'install-manifest.yaml');
 
       if (await fileManager.pathExists(manifestPath)) {
-        return currentDir; // Return parent directory, not .baldwin-core itself
+        return currentDir; // Return parent directory, not .baldwin/core itself
       }
 
       currentDir = path.dirname(currentDir);
     }
 
-    // Also check if we're inside a .baldwin-core directory
-    if (path.basename(process.cwd()) === '.baldwin-core') {
+    // Also check if we're inside a .baldwin/core directory
+    if (path.basename(process.cwd()) === '.baldwin/core') {
       const manifestPath = path.join(process.cwd(), 'install-manifest.yaml');
       if (await fileManager.pathExists(manifestPath)) {
         return path.dirname(process.cwd()); // Return parent directory

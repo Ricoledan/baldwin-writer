@@ -272,7 +272,7 @@ class FileManager {
   }
 
   async modifyCoreConfig(installDir, config) {
-    const coreConfigPath = path.join(installDir, '.baldwin-core', 'core-config.yaml');
+    const coreConfigPath = path.join(installDir, '.baldwin', 'core', 'core-config.yaml');
 
     try {
       // Read the existing core-config.yaml
@@ -388,7 +388,7 @@ class FileManager {
       return false;
     }
   }
-  manifestDir = '.baldwin-core';
+  manifestDir = '.baldwin/core';
   manifestFile = 'install-manifest.yaml';
 }
 

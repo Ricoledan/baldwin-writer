@@ -12,6 +12,7 @@ project:
   tagline: "Your AI Content Studio, Orchestrated"
   domain: content-creation
   icon: ✍️
+  slashPrefix: "Baldwin"
 
 # Agent inheritance - Baldwin agents extend BMAD agents
 # This maps Baldwin's content-focused agents to their BMAD equivalents

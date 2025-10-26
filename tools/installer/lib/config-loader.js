@@ -148,7 +148,7 @@ class ConfigLoader {
 
     // Add all resolved resources
     for (const resource of agentDeps.resources) {
-      const filePath = `.baldwin-core/${resource.type}/${resource.id}.md`;
+      const filePath = `.baldwin/core/${resource.type}/${resource.id}.md`;
       if (!depPaths.includes(filePath)) {
         depPaths.push(filePath);
       }
@@ -229,11 +229,11 @@ class ConfigLoader {
       const depPaths = [];
 
       // Add team config file
-      depPaths.push(`.baldwin-core/agent-teams/${teamId}.yaml`);
+      depPaths.push(`.baldwin/core/agent-teams/${teamId}.yaml`);
 
       // Add all agents
       for (const agent of teamDeps.agents) {
-        const filePath = `.baldwin-core/agents/${agent.id}.md`;
+        const filePath = `.baldwin/core/agents/${agent.id}.md`;
         if (!depPaths.includes(filePath)) {
           depPaths.push(filePath);
         }
@@ -241,7 +241,7 @@ class ConfigLoader {
 
       // Add all resolved resources
       for (const resource of teamDeps.resources) {
-        const filePath = `.baldwin-core/${resource.type}/${resource.id}.${resource.type === 'workflows' ? 'yaml' : 'md'}`;
+        const filePath = `.baldwin/core/${resource.type}/${resource.id}.${resource.type === 'workflows' ? 'yaml' : 'md'}`;
         if (!depPaths.includes(filePath)) {
           depPaths.push(filePath);
         }

@@ -30,7 +30,7 @@
     "bmad-method": "tools/bmad-npx-wrapper.js"
   },
   "files": [
-    "dist/baldwin-core/",
+    "dist/.baldwin/",
     "tools/",
     "common/",
     "expansion-packs/",

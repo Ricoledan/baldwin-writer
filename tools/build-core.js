@@ -15,7 +15,7 @@ const chalk = require('chalk');
 const ROOT_DIR = path.join(__dirname, '..');
 const BMAD_CORE_SOURCE = path.join(ROOT_DIR, 'node_modules', 'bmad-method', 'bmad-core');
 const BALDWIN_CORE_SOURCE = path.join(ROOT_DIR, 'baldwin-core');
-const OUTPUT_DIR = path.join(ROOT_DIR, 'dist', 'baldwin-core');
+const OUTPUT_DIR = path.join(ROOT_DIR, 'dist', '.baldwin', 'core');
 
 async function buildCore() {
   console.log(chalk.bold.cyan('\n🔨 Building Baldwin Writer Core\n'));
@@ -37,18 +37,44 @@ async function buildCore() {
     await fs.ensureDir(OUTPUT_DIR);
     console.log(chalk.green('✓ Output directory ready\n'));
 
-    // Step 3: Copy BMAD core as base
+    // Step 3: Copy BMAD core as base (excluding redundant agents)
     console.log(chalk.gray('Copying BMAD-METHOD core as base layer...'));
+    const excludedAgents = [
+      'analyst',
+      'architect',
+      'dev',
+      'pm',
+      'po',
+      'qa',
+      'sm',
+      'ux-expert',
+      'bmad-master',
+      'bmad-orchestrator',
+    ];
+
     await fs.copy(BMAD_CORE_SOURCE, OUTPUT_DIR, {
       filter: (src) => {
-        // Skip node_modules, git, and other non-essential files
         const relativePath = path.relative(BMAD_CORE_SOURCE, src);
+
+        // Skip node_modules, git, and other non-essential files
         if (relativePath.includes('node_modules')) return false;
         if (relativePath.includes('.git')) return false;
+
+        // Skip redundant BMAD agents (Baldwin has content-specific equivalents)
+        const pathParts = relativePath.split(path.sep);
+        if (pathParts[0] === 'agents' && pathParts.length > 1) {
+          const agentName = pathParts[1].replace(/\.md$/, '');
+          if (excludedAgents.includes(agentName)) {
+            return false;
+          }
+        }
+
         return true;
       },
     });
-    console.log(chalk.green('✓ BMAD core copied\n'));
+    console.log(
+      chalk.green(`✓ BMAD core copied (excluded ${excludedAgents.length} redundant agents)\n`),
+    );
 
     // Step 4: Overlay Baldwin extensions
     console.log(chalk.gray('Overlaying Baldwin Writer extensions...'));
